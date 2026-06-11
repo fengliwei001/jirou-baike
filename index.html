@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>胸肌训练动作库 · 肌肉维基</title>
+<meta name="description" content="完整的中文胸肌训练动作库:杠铃卧推、哑铃飞鸟、俯卧撑、绳索夹胸等 22 个经典动作,含 GIF 动态示范、YouTube 视频教程、步骤详解。" />
+<style>
+  :root{
+    --bg:#0e0f12;
+    --bg-soft:#16181d;
+    --panel:#1c1f26;
+    --panel-2:#23262e;
+    --line:#2a2d36;
+    --text:#e8eaee;
+    --text-dim:#9aa0ab;
+    --accent:#ff5a3c;
+    --accent-2:#ff8a5b;
+    --good:#3ecf8e;
+    --warn:#f5b54a;
+    --bad:#e35d6a;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:auto} /* Lenis 接管滚动,禁用原生 smooth */
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  html.lenis,html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto!important}
+  .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+  .lenis.lenis-stopped{overflow:hidden}
+  .lenis.lenis-scrolling iframe{pointer-events:none}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  img{max-width:100%;display:block}
+  .view{display:none}
+  .view.active{display:block}
+
+  /* ---------- 顶部导航 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:rgba(14,15,18,.85);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px;cursor:pointer}
+  .brand-mark{
+    width:30px;height:30px;border-radius:8px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:grid;place-items:center;color:#fff;font-weight:800;
+    box-shadow:0 6px 16px rgba(255,90,60,.35);
+  }
+  .brand-name{font-size:16px}
+  .brand-name b{color:var(--accent)}
+  .nav-links{display:flex;gap:6px;align-items:center}
+  .nav-links a{
+    padding:8px 14px;border-radius:8px;font-size:14px;color:var(--text-dim);
+    transition:all .2s;
+  }
+  .nav-links a:hover{color:var(--text);background:var(--panel)}
+  .nav-links a.active{color:var(--text);background:var(--panel-2)}
+  .nav-cta{
+    padding:8px 16px;border-radius:8px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;
+    transition:transform .15s;
+  }
+  .nav-cta:hover{transform:translateY(-1px)}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:80px 28px 60px;text-align:center;
+    background:
+      radial-gradient(1200px 600px at 50% -100px, rgba(255,90,60,.18), transparent 60%),
+      radial-gradient(800px 400px at 90% 20%, rgba(255,138,91,.08), transparent 60%);
+  }
+  .hero h1{
+    font-size:clamp(32px,5vw,52px);font-weight:800;line-height:1.15;margin:0 0 16px;
+    letter-spacing:-.5px;
+  }
+  .hero h1 .accent{
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{font-size:17px;color:var(--text-dim);margin:0 auto 28px;max-width:620px;line-height:1.6}
+  .hero-stats{display:flex;gap:36px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+  .hero-stat{text-align:center}
+  .hero-stat .n{font-size:28px;font-weight:800;color:var(--text)}
+  .hero-stat .l{font-size:13px;color:var(--text-dim);margin-top:2px}
+
+  /* ---------- 筛选条 ---------- */
+  .filter-bar{
+    position:sticky;top:59px;z-index:40;
+    background:rgba(14,15,18,.85);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid var(--line);
+    padding:14px 28px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  }
+  .filter-label{font-size:13px;color:var(--text-dim);margin-right:6px}
+  .chip{
+    padding:7px 14px;border-radius:999px;background:var(--panel);border:1px solid var(--line);
+    font-size:13px;color:var(--text-dim);transition:all .15s;
+  }
+  .chip:hover{color:var(--text);border-color:#3a3e4a}
+  .chip.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+  .search{
+    margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--panel);
+    border:1px solid var(--line);border-radius:10px;padding:7px 12px;min-width:220px;
+  }
+  .search input{background:none;border:0;outline:0;color:var(--text);font-size:14px;width:100%;font-family:inherit}
+  .search svg{opacity:.5}
+
+  /* ---------- 网格 ---------- */
+  .container{max-width:1280px;margin:0 auto;padding:40px 28px 80px}
+  .section-title{font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;margin:0 0 20px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    transition:transform .2s, border-color .2s, box-shadow .2s;cursor:pointer;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-3px);border-color:#3a3e4a;box-shadow:var(--shadow)}
+  .card-media{
+    aspect-ratio:16/10;background:#0a0b0d;position:relative;overflow:hidden;
+  }
+  .card-media img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .4s;
+  }
+  .card:hover .card-media img{transform:scale(1.05)}
+  .card-media .badge{
+    position:absolute;top:10px;left:10px;background:rgba(0,0,0,.7);
+    padding:4px 10px;border-radius:999px;font-size:11px;color:#fff;backdrop-filter:blur(6px);
+    z-index:2;
+  }
+  .card-media .play-ico{
+    position:absolute;inset:0;display:grid;place-items:center;
+    background:linear-gradient(to top,rgba(0,0,0,.4),transparent 50%);
+    opacity:0;transition:opacity .2s;
+  }
+  .card:hover .play-ico{opacity:1}
+  .play-ico svg{width:48px;height:48px;background:rgba(255,90,60,.95);border-radius:50%;padding:14px;color:#fff}
+  .card-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column}
+  .card-title{font-size:16px;font-weight:700;margin:0 0 4px;line-height:1.3}
+  .card-sub{font-size:12px;color:var(--text-dim);margin-bottom:10px}
+  .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+  .tag{font-size:11px;padding:3px 8px;border-radius:6px;background:var(--panel-2);color:var(--text-dim)}
+  .tag.diff-beginner{color:var(--good)}
+  .tag.diff-intermediate{color:var(--warn)}
+  .tag.diff-advanced{color:var(--bad)}
+
+  /* ---------- 详情模态框 ---------- */
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);
+    z-index:100;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;
+    padding:40px 20px;
+  }
+  .modal-backdrop.open{display:flex;animation:fadeIn .2s}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  .modal{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;
+    max-width:960px;width:100%;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);
+    animation:slideUp .25s;
+  }
+  @keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .modal-head{
+    background:#0a0b0d;position:relative;overflow:hidden;
+  }
+  .modal-head .gif-stage{
+    width:100%;height:280px;max-height:50vh;background:#0a0b0d;
+    display:grid;place-items:center;position:relative;overflow:hidden;
+  }
+  .modal-head .gif-stage img{
+    max-width:100%;max-height:100%;object-fit:contain;
+  }
+  .modal-close{
+    position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:10px;
+    background:rgba(0,0,0,.6);display:grid;place-items:center;transition:background .15s;
+    z-index:5;
+  }
+  .modal-close:hover{background:rgba(0,0,0,.9)}
+  .modal-body{padding:32px 36px 40px}
+  .modal-body h2{font-size:30px;font-weight:800;margin:0 0 6px;letter-spacing:-.3px}
+  .modal-body .sub{color:var(--text-dim);font-size:14px;margin-bottom:20px}
+  .modal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+  .info-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .info-box .lbl{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+  .info-box .val{font-size:15px;font-weight:600;margin-top:4px}
+  .section-block{margin-bottom:26px}
+  .section-block h3{font-size:18px;font-weight:700;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  .section-block h3 .num{
+    width:24px;height:24px;border-radius:6px;background:var(--accent);color:#fff;
+    display:grid;place-items:center;font-size:13px;font-weight:700;
+  }
+  .steps{counter-reset:step;padding:0;list-style:none;margin:0}
+  .steps li{
+    counter-increment:step;padding:12px 14px 12px 48px;position:relative;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:8px;
+    font-size:14.5px;line-height:1.6;
+  }
+  .steps li::before{
+    content:counter(step);position:absolute;left:14px;top:12px;
+    width:24px;height:24px;border-radius:6px;background:var(--panel-2);
+    color:var(--accent);font-weight:700;font-size:13px;
+    display:grid;place-items:center;
+  }
+  .tip{
+    background:rgba(255,90,60,.08);border:1px solid rgba(255,90,60,.25);
+    border-left:3px solid var(--accent);border-radius:10px;padding:14px 16px;
+    font-size:14px;line-height:1.6;color:var(--text);
+  }
+  .tip b{color:var(--accent-2)}
+
+  /* ---------- YouTube 嵌入 ---------- */
+  .video-wrap{
+    position:relative;padding-bottom:56.25%;height:0;
+    border-radius:12px;overflow:hidden;background:#000;
+    border:1px solid var(--line);
+  }
+  .video-wrap iframe{
+    position:absolute;top:0;left:0;width:100%;height:100%;border:0;
+  }
+  .video-tabs{display:flex;gap:8px;margin-bottom:14px}
+  .video-tab{
+    padding:8px 16px;border-radius:8px;background:var(--panel);border:1px solid var(--line);
+    font-size:13px;color:var(--text-dim);transition:all .15s;
+  }
+  .video-tab.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+  .video-tab:hover:not(.active){color:var(--text)}
+
+  /* ---------- 二级页(动作详情页) ---------- */
+  .detail-hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 500px at 50% -100px, rgba(255,90,60,.15), transparent 60%);
+  }
+  .detail-hero-inner{
+    max-width:1100px;margin:0 auto;padding:40px 28px 0;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start;
+  }
+  .breadcrumbs{
+    display:flex;gap:6px;align-items:center;font-size:13px;color:var(--text-dim);margin-bottom:18px;
+  }
+  .breadcrumbs a{color:var(--text-dim)}
+  .breadcrumbs a:hover{color:var(--accent)}
+  .breadcrumbs .sep{opacity:.4}
+  .detail-hero h1{
+    font-size:clamp(32px,4.5vw,48px);font-weight:800;margin:0 0 8px;letter-spacing:-.5px;line-height:1.1;
+  }
+  .detail-hero .en-name{color:var(--text-dim);font-size:15px;margin-bottom:16px}
+  .detail-hero .summary{font-size:15px;line-height:1.7;color:var(--text-dim);margin-bottom:24px}
+  .detail-hero .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+  .detail-hero .gif-wrap{
+    background:#0a0b0d;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+    aspect-ratio:4/3;
+  }
+  .detail-hero .gif-wrap img{width:100%;height:100%;object-fit:contain}
+  .detail-meta{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0;
+  }
+  .detail-meta .info-box{padding:16px}
+  .detail-content{
+    max-width:1100px;margin:0 auto;padding:40px 28px 80px;
+    display:grid;grid-template-columns:1.5fr 1fr;gap:40px;
+  }
+  .related-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  }
+  .related-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    cursor:pointer;transition:all .15s;
+  }
+  .related-card:hover{border-color:#3a3e4a;transform:translateY(-2px)}
+  .related-card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .related-card .info{padding:10px 12px}
+  .related-card .name{font-size:14px;font-weight:600;margin-bottom:2px}
+  .related-card .sub{font-size:11px;color:var(--text-dim)}
+
+  /* ---------- 三级页(分类页) ---------- */
+  .cat-hero{
+    padding:50px 28px 30px;text-align:center;
+    background:
+      radial-gradient(900px 400px at 50% -50px, rgba(255,90,60,.13), transparent 60%);
+  }
+  .cat-hero .cat-icon{
+    width:72px;height:72px;border-radius:18px;margin:0 auto 20px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:grid;place-items:center;color:#fff;box-shadow:0 10px 30px rgba(255,90,60,.3);
+  }
+  .cat-hero h1{font-size:clamp(28px,4vw,40px);font-weight:800;margin:0 0 8px;letter-spacing:-.3px}
+  .cat-hero p{color:var(--text-dim);margin:0 auto;max-width:540px;line-height:1.6}
+  .cat-hero .count{font-size:13px;color:var(--accent);margin-top:12px;font-weight:600}
+
+  /* ---------- 空状态 ---------- */
+  .empty{text-align:center;padding:80px 20px;color:var(--text-dim)}
+  .empty .ico{font-size:48px;margin-bottom:12px;opacity:.5}
+  .empty p{font-size:15px}
+
+  /* ---------- 页脚 ---------- */
+  .foot{
+    border-top:1px solid var(--line);padding:40px 28px;text-align:center;color:var(--text-dim);font-size:13px;
+  }
+  .foot a{color:var(--text-dim);margin:0 8px}
+  .foot a:hover{color:var(--text)}
+
+  /* ---------- 打赏浮窗按钮 ---------- */
+  .fab{
+    position:fixed;bottom:24px;right:24px;z-index:60;
+    display:flex;align-items:center;gap:8px;
+    padding:12px 18px;border-radius:999px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;font-size:14px;font-weight:600;
+    box-shadow:0 10px 30px rgba(255,90,60,.4);
+    transition:transform .2s, box-shadow .2s;
+    cursor:pointer;border:0;
+  }
+  .fab:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 14px 36px rgba(255,90,60,.55)}
+  .fab svg{width:18px;height:18px;fill:currentColor;stroke:none}
+  .fab::before{
+    content:'';position:absolute;inset:0;border-radius:999px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    animation:fab-pulse 2.4s ease-out infinite;z-index:-1;
+  }
+  @keyframes fab-pulse{
+    0%{transform:scale(1);opacity:.6}
+    100%{transform:scale(1.4);opacity:0}
+  }
+  @media (max-width:680px){
+    .fab span{display:none}
+    .fab{padding:14px;border-radius:50%}
+  }
+
+  /* ---------- 打赏弹层 ---------- */
+  .support-backdrop{
+    position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);
+    z-index:110;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;
+    padding:40px 20px;
+  }
+  .support-backdrop.open{display:flex;animation:fadeIn .2s}
+  .support-modal{
+    position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;
+    max-width:720px;width:100%;padding:40px 36px 32px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);animation:slideUp .25s;
+  }
+  .support-close{
+    position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:10px;
+    background:rgba(0,0,0,.4);display:grid;place-items:center;transition:background .15s;
+  }
+  .support-close:hover{background:rgba(0,0,0,.7)}
+  .support-title{font-size:26px;font-weight:800;margin:0 0 6px;text-align:center;letter-spacing:-.3px}
+  .support-sub{font-size:14px;color:var(--text-dim);text-align:center;margin:0 0 28px;line-height:1.6}
+  .support-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+  .support-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:20px;text-align:center;transition:border-color .2s, transform .2s;
+  }
+  .support-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .support-card-head{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
+  .support-card-head h3{font-size:16px;font-weight:700;margin:0}
+  .support-ico{
+    width:32px;height:32px;border-radius:8px;display:grid;place-items:center;
+    font-size:16px;
+  }
+  .support-ico-donate{background:rgba(255,90,60,.15);color:var(--accent-2)}
+  .support-ico-contact{background:rgba(62,207,142,.15);color:var(--good)}
+  .qr-wrap{
+    width:100%;aspect-ratio:1/1;background:#fff;border-radius:10px;padding:8px;
+    display:grid;place-items:center;margin-bottom:12px;
+  }
+  .qr-wrap img{width:100%;height:100%;object-fit:contain;display:block}
+  .support-tip{font-size:12.5px;color:var(--text-dim);margin:0;line-height:1.5}
+  .support-foot{text-align:center;font-size:13px;color:var(--text-dim);margin:8px 0 0}
+  @media (max-width:580px){
+    .support-grid{grid-template-columns:1fr}
+    .support-modal{padding:32px 22px 24px}
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:860px){
+    .detail-hero-inner{grid-template-columns:1fr;gap:24px}
+    .detail-content{grid-template-columns:1fr;gap:30px}
+  }
+  @media (max-width:680px){
+    .nav{padding:12px 16px}
+    .nav-links{display:none}
+    .hero{padding:50px 20px 40px}
+    .filter-bar{padding:12px 16px}
+    .search{min-width:0;width:100%;margin-left:0;order:99}
+    .container{padding:30px 16px 60px}
+    .modal-body{padding:24px 20px 30px}
+    .modal-grid{grid-template-columns:repeat(2,1fr)}
+    .hero-stats{gap:24px}
+    .hero-stat .n{font-size:22px}
+    .cat-hero{padding:30px 16px 20px}
+    .related-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 导航 ============ -->
+<header class="nav">
+  <div class="brand" id="brand">
+    <div class="brand-mark">肌</div>
+    <div class="brand-name"><b>肌肉</b>维基</div>
+  </div>
+  <nav class="nav-links">
+    <a href="#/" data-cat="chest" class="nav-link">胸部</a>
+    <a href="#/category/背部" class="nav-link">背部</a>
+    <a href="#/category/肩部" class="nav-link">肩部</a>
+    <a href="#/category/腿部" class="nav-link">腿部</a>
+    <a href="#/category/手臂" class="nav-link">手臂</a>
+    <a href="#/category/核心" class="nav-link">核心</a>
+  </nav>
+  <a class="nav-cta" href="#/">开始训练</a>
+</header>
+
+<!-- ============ 视图 1: 主页 ============ -->
+<main class="view active" id="view-home">
+  <section class="hero">
+    <h1>用<span class="accent">正确姿势</span>雕刻你的胸肌</h1>
+    <p>专业动作库 · 22 个经典胸肌训练 · GIF 动态示范 + 视频教程 · 从初学者到进阶者全覆盖</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="n" id="stat-count">0</div><div class="l">胸肌动作</div></div>
+      <div class="hero-stat"><div class="n">3</div><div class="l">难度分级</div></div>
+      <div class="hero-stat"><div class="n">5</div><div class="l">器械类型</div></div>
+      <div class="hero-stat"><div class="n">22</div><div class="l">GIF 示范</div></div>
+    </div>
+  </section>
+
+  <div class="filter-bar">
+    <span class="filter-label">器械</span>
+    <button class="chip active" data-filter="all">全部</button>
+    <button class="chip" data-filter="杠铃">杠铃</button>
+    <button class="chip" data-filter="哑铃">哑铃</button>
+    <button class="chip" data-filter="器械">固定器械</button>
+    <button class="chip" data-filter="绳索">绳索</button>
+    <button class="chip" data-filter="徒手">徒手</button>
+    <div class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="搜索动作..." />
+    </div>
+  </div>
+
+  <div class="container" id="exercises">
+    <h2 class="section-title">胸肌训练动作</h2>
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
+
+<!-- ============ 视图 2: 动作详情页 ============ -->
+<main class="view" id="view-detail"></main>
+
+<!-- ============ 视图 3: 分类页 ============ -->
+<main class="view" id="view-category"></main>
+
+<!-- ============ 详情模态框(快速预览) ============ -->
+<div class="modal-backdrop" id="modal" data-lenis-prevent>
+  <div class="modal">
+    <div class="modal-head">
+      <div class="gif-stage">
+        <img id="modal-gif" src="" alt="动作示范" />
+        <button class="modal-close" id="modal-close" aria-label="关闭">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<footer class="foot">
+  <p>肌肉维基 · 中文版 · 仅作健身教学参考,训练前请充分热身</p>
+  <p style="margin-top:8px"><a href="#/">关于</a>·<a href="#/">免责声明</a>·<a href="#/">联系我们</a></p>
+</footer>
+
+<!-- ============ 打赏 + 联系 浮窗按钮 ============ -->
+<button class="fab" id="support-fab" aria-label="支持作者">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </svg>
+  <span>支持作者</span>
+</button>
+
+<!-- ============ 打赏 + 联系 弹层 ============ -->
+<div class="support-backdrop" id="support-modal" data-lenis-prevent>
+  <div class="support-modal">
+    <button class="support-close" id="support-close" aria-label="关闭">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <h2 class="support-title">感谢你的支持 ☕</h2>
+    <p class="support-sub">如果这个项目对你有帮助,欢迎打赏或加我微信交流</p>
+
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="support-card-head">
+          <span class="support-ico support-ico-donate">❤</span>
+          <h3>扫码打赏</h3>
+        </div>
+        <div class="qr-wrap">
+          <img src="assets/qr-donate.jpg" alt="微信收款码" />
+        </div>
+        <p class="support-tip">微信扫一扫 · 金额随心</p>
+      </div>
+
+      <div class="support-card">
+        <div class="support-card-head">
+          <span class="support-ico support-ico-contact">💬</span>
+          <h3>联系我</h3>
+        </div>
+        <div class="qr-wrap">
+          <img src="assets/qr-contact.jpg" alt="微信好友码" />
+        </div>
+        <p class="support-tip">扫码加微信 · 健身 / 合作 / 反馈</p>
+      </div>
+    </div>
+
+    <p class="support-foot">每一份支持都是持续更新的动力 ❤️</p>
+  </div>
+</div>
+
+<!-- ============ Lenis 丝滑滚动 ============ -->
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+<!-- ============ 数据 + 脚本 ============ -->
+<script>
+/* ====== Lenis 初始化 ====== */
+const lenis = new Lenis({
+  duration: 1.2,          // 滚动动画时长(秒),越大越"飘"
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // 指数缓出,easeOutExpo
+  smoothWheel: true,      // 启用滚轮平滑
+  wheelMultiplier: 1,     // 滚轮灵敏度
+  touchMultiplier: 2,     // 触屏灵敏度
+  lerp: 0.1,              // 线性插值系数(0-1,越小越"丝滑但有延迟")
+});
+
+/* RAF 循环 */
+function raf(time){
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+/* 锚点跳转(给"开始训练"用) */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    // 只拦截纯锚点链接(#开头且不带路径)
+    if(href === '#' || href === '#/' || href.startsWith('#/')) return;
+    const target = document.querySelector(href);
+    if(target){
+      e.preventDefault();
+      lenis.scrollTo(target, {offset: -80, duration: 1.5});
+    }
+  });
+});
+
+/* 监听滚动事件(可选:做视差或动画触发) */
+lenis.on('scroll', (e) => {
+  // 当前滚动进度(0-1)
+  // 可用于动画触发,例如让 hero 文字随滚动淡出
+  const scrollY = e.animatedScroll;
+  document.documentElement.style.setProperty('--scroll-y', scrollY + 'px');
+});
+
+/* ====== 胸肌训练动作数据(中文) ====== */
+// 视频源:YouTube 嵌入,以及每个动作的 GIF 缩略图(从 Tenor 公开 CDN 直链)
+const EXERCISES = [
+  {
+    id:1, slug:"barbell-bench-press", name:"杠铃平板卧推", en:"Barbell Bench Press",
+    equipment:"杠铃", difficulty:"中级", primary:"胸大肌(整体)", secondary:"三角肌前束、肱三头肌",
+    badge:"经典王牌",
+    gif:"https://media.tenor.com/UNRPPrRxsmcAAAAM/bench-press-lifting-weights.gif",
+    youtube:"Iwe6AmxVf7o",
+    steps:[
+      "平躺在卧推凳上,双脚踩稳地面,臀部紧贴凳面,眼睛正对杠铃。",
+      "双手以略宽于肩的握距握住杠铃,采用全握(拇指环绕杠铃)确保安全。",
+      "从架上取出杠铃,双臂伸直举于胸部正上方,这是起始位置。",
+      "吸气,缓慢控制下放杠铃至胸部中段(乳头连线附近),肘关节约呈 75°。",
+      "呼气,用胸肌发力将杠铃推回起始位置,双臂完全伸直但肘关节不锁死。",
+      "重复规定次数,完成后将杠铃放回架上。"
+    ],
+    tips:"<b>核心要点:</b>肩胛骨后缩下沉贴紧凳面,腰部保持自然生理曲度,不要过度弓背。新手建议有人保护或使用史密斯机。",
+    summary:"杠铃平板卧推是胸肌训练的黄金动作,能有效刺激整个胸大肌,同时强化肱三头肌和三角肌前束。这是力量训练的基础动作之一,也是衡量上肢力量的重要指标。"
+  },
+  {
+    id:2, slug:"incline-bench-press", name:"杠铃上斜卧推", en:"Incline Barbell Bench Press",
+    equipment:"杠铃", difficulty:"中级", primary:"胸大肌上部", secondary:"三角肌前束、肱三头肌、核心",
+    badge:"上胸塑造",
+    gif:"https://media.tenor.com/7BwZUn1skqMAAAAM/smith-machine-decline-press.gif",
+    youtube:"8iPEnn-ltC8",
+    steps:[
+      "将卧推凳调至 30°-45° 倾角(角度越大,三角肌前束参与越多)。",
+      "坐稳后仰卧,双脚踩地,臀部贴凳,眼睛位于杠铃正下方。",
+      "握距略宽于肩,取出杠铃置于锁骨正上方。",
+      "吸气,将杠铃缓慢下放至上胸(锁骨下方 2-3 厘米)。",
+      "呼气,胸肌发力将杠铃推回起始位,顶峰挤压 1 秒。",
+      "保持节奏,完成目标次数。"
+    ],
+    tips:"<b>核心要点:</b>角度不要超过 45°,否则压力会转移到肩部。下放时肘部内收约 45°,避免肩部外展过大造成肩袖损伤。",
+    summary:"上斜卧推是塑造上胸线条的必备动作,30-45° 角度能让胸大肌上部得到充分刺激,同时不会让肩部过度发力。"
+  },
+  {
+    id:3, slug:"decline-bench-press", name:"杠铃下斜卧推", en:"Decline Barbell Bench Press",
+    equipment:"杠铃", difficulty:"高级", primary:"胸大肌下部", secondary:"肱三头肌、三角肌前束",
+    badge:"下胸线条",
+    gif:"https://media.tenor.com/uB5i8ulC-iQAAAAM/bench-press-failarmy.gif",
+    youtube:"LfyQBUKR8SE",
+    steps:[
+      "使用专用下斜凳,固定好双脚(通常有脚钩),头部低于躯干。",
+      "仰卧后,握距与平板卧推相同(略宽于肩)。",
+      "取出杠铃置于下胸正上方,起始位双臂伸直。",
+      "吸气,下放杠铃至下胸(剑突附近),肘部内收。",
+      "呼气发力推起,顶峰收缩胸肌。",
+      "完成组数后安全回架。"
+    ],
+    tips:"<b>核心要点:</b>下斜角度一般 15°-30° 即可。下斜时血液涌向头部,有高血压、心脑血管疾病者慎用。建议有保护者陪同。",
+    summary:"下斜卧推针对胸大肌下部,适合希望塑造下胸线条的训练者。由于体位特殊,需要专用器械和注意事项。"
+  },
+  {
+    id:4, slug:"dumbbell-bench-press", name:"哑铃平板卧推", en:"Dumbbell Bench Press",
+    equipment:"哑铃", difficulty:"初级", primary:"胸大肌(整体)", secondary:"三角肌前束、肱三头肌",
+    badge:"活动度大",
+    gif:"https://media.tenor.com/DplZ89zxlUIAAAAM/supino.gif",
+    youtube:"VmB1G1K7v94",
+    steps:[
+      "坐在凳边,各持一只哑铃,顺势将哑铃放在大腿上。",
+      "仰卧的同时借力将哑铃提至胸部两侧,前臂垂直地面。",
+      "双脚踩稳,臀部贴凳,核心收紧。",
+      "呼气,胸肌发力将哑铃向中间推起,顶峰时两只哑铃几乎相触但不碰。",
+      "吸气,缓慢下放至胸部两侧,肘部略低于肩。",
+      "重复动作,完成组数后依次将哑铃放回腿侧再起身。"
+    ],
+    tips:"<b>核心要点:</b>相比杠铃,哑铃活动度更大,能更充分拉伸和收缩胸肌,也更易发现左右力量差异。下放时肘部不要过度外展(略低于 90°)。",
+    summary:"哑铃平板卧推是新手友好的胸肌动作,相比杠铃版活动度更大,可更充分刺激胸肌,也能纠正左右力量不平衡。"
+  },
+  {
+    id:5, slug:"incline-dumbbell-press", name:"哑铃上斜卧推", en:"Incline Dumbbell Press",
+    equipment:"哑铃", difficulty:"初级", primary:"胸大肌上部", secondary:"三角肌前束、肱三头肌",
+    badge:"上胸首选",
+    gif:"https://media.tenor.com/9T1dx6LbbgwAAAAM/2inclne-dumbel-press.gif",
+    youtube:"8iPEnn-ltC8",
+    steps:[
+      "调节凳子至 30°-45°,坐稳后仰卧,双手持哑铃置于胸部两侧。",
+      "掌心朝前,前臂垂直于地面。",
+      "呼气,推起哑铃至最高点(哑铃不接触),肘部微屈。",
+      "吸气,缓慢下放至起始位,感受上胸充分拉伸。",
+      "保持节奏,完成目标次数。"
+    ],
+    tips:"<b>核心要点:</b>比杠铃版本更灵活,可微调角度让上胸获得最大刺激。推起时注意力集中在胸肌,不要用肩部主导发力。",
+    summary:"哑铃上斜卧推是上胸训练的经典动作,比杠铃版活动度更大,能更精准地刺激胸大肌上部。"
+  },
+  {
+    id:6, slug:"flat-dumbbell-fly", name:"哑铃平地飞鸟", en:"Flat Dumbbell Fly",
+    equipment:"哑铃", difficulty:"初级", primary:"胸大肌内侧/中缝", secondary:"三角肌前束",
+    badge:"拉伸中缝",
+    gif:"https://media.tenor.com/GNEnjSLfGQMAAAAM/inlcine-chest-fly.gif",
+    youtube:"eozdVDA78K0",
+    steps:[
+      "平躺凳上,双手各持哑铃,双臂伸直举于胸上方,掌心相对。",
+      "肘部微屈并锁定(约 15°),全程保持这个角度。",
+      "吸气,双臂向身体两侧缓慢张开,直至胸部有明显拉伸感。",
+      "呼气,胸肌发力沿弧线将哑铃合拢,回到起始位。",
+      "顶峰时挤压胸肌 1 秒,感受中缝收缩。"
+    ],
+    tips:"<b>核心要点:</b>这是孤立训练动作,目标是胸肌拉伸和收缩,不要用过大重量。下放时肘部角度不变,只动肩关节。重量过重会导致肩部损伤。",
+    summary:"哑铃飞鸟是经典的胸肌孤立训练动作,主要刺激胸大肌中缝,对拉伸和收缩感训练尤其有效。"
+  },
+  {
+    id:7, slug:"incline-dumbbell-fly", name:"哑铃上斜飞鸟", en:"Incline Dumbbell Fly",
+    equipment:"哑铃", difficulty:"中级", primary:"胸大肌上部内侧", secondary:"三角肌前束",
+    badge:"上胸雕刻",
+    gif:"https://media.tenor.com/GNEnjSLfGQMAAAAM/inlcine-chest-fly.gif",
+    youtube:"LVd4kOkQYbc",
+    steps:[
+      "凳子调至 30°,仰卧后双手持哑铃于胸上方,掌心相对。",
+      "肘部微屈固定,双臂伸直。",
+      "吸气向两侧张开,直至上胸有拉伸感。",
+      "呼气发力合拢,挤压上胸 1 秒。",
+      "重复动作。"
+    ],
+    tips:"<b>核心要点:</b>比平板飞鸟更针对上胸内侧,适合想要塑造上胸线条的人。重量宜轻,严格控制幅度。",
+    summary:"上斜飞鸟针对上胸内侧,适合有训练基础、想要精细雕刻上胸线条的训练者。"
+  },
+  {
+    id:8, slug:"floor-dumbbell-press", name:"哑铃地板卧推", en:"Floor Dumbbell Press",
+    equipment:"哑铃", difficulty:"初级", primary:"胸大肌中部", secondary:"肱三头肌、三角肌",
+    badge:"居家友好",
+    gif:"https://media.tenor.com/xc9Na9FihcgAAAAM/lifting-weights-dumbbell-press.gif",
+    youtube:"r4b0g5lV0W0",
+    steps:[
+      "直接躺在地板上,膝盖弯曲,双脚踩地。",
+      "双手各持哑铃,起始位为胸部正上方,手臂伸直。",
+      "下放哑铃至大臂触地(肘部弯曲约 90°),前臂垂直地面。",
+      "呼气推起至起始位,挤压胸肌。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>由于大臂触地限制了活动范围,这个动作对肩关节更友好,适合肩部不适的训练者。也是完美的居家训练动作。",
+    summary:"地板卧推是居家友好的胸肌训练,地板限制了动作幅度,对肩部压力小,适合初学者和肩部不适者。"
+  },
+  {
+    id:9, slug:"cable-crossover-high-low", name:"绳索夹胸(高至低)", en:"Cable Crossover (High to Low)",
+    equipment:"绳索", difficulty:"中级", primary:"胸大肌下部和内侧", secondary:"三角肌前束",
+    badge:"下胸雕塑",
+    gif:"https://media.tenor.com/YDmlZGXmlVcAAAAM/judge-judging.gif",
+    youtube:"taI4XduUrTk",
+    steps:[
+      "调整两个滑轮至最高位,选择合适重量。",
+      "站于两机之间,双手各握一个把手,身体微微前倾。",
+      "起始位手臂向两侧展开,肘部微屈。",
+      "呼气,双手沿弧线下拉至下腹前方,双手相触。",
+      "顶峰挤压胸肌 1-2 秒,吸气缓慢返回。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>挤压时专注于胸肌收缩,不要让手臂完全伸直。绳索提供持续张力,比哑铃飞鸟的负荷曲线更优。",
+    summary:"绳索夹胸(高至低)针对胸大肌下部和内侧,绳索提供的持续张力让胸肌在整个动作过程中都受到刺激。"
+  },
+  {
+    id:10, slug:"cable-crossover-low-high", name:"绳索夹胸(低至高)", en:"Cable Crossover (Low to High)",
+    equipment:"绳索", difficulty:"中级", primary:"胸大肌上部", secondary:"三角肌前束、肱二头肌",
+    badge:"上胸线条",
+    gif:"https://media.tenor.com/AWUQIIzJfxIAAAAM/andy-rew-cyber-frogs-andy-rew.gif",
+    youtube:"P9WY1S3tH2E",
+    steps:[
+      "滑轮调至最低位,站于两机之间,双手握把手。",
+      "起始位手臂向下伸直,掌心向上。",
+      "呼气,双手沿弧线向上拉起,直至双手在胸前相触。",
+      "顶峰挤压上胸 1 秒,吸气缓慢返回。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>与高至低相反,此动作侧重上胸。手腕全程保持中立,不要屈腕。",
+    summary:"绳索夹胸(低至高)针对胸大肌上部,是塑造上胸线条的孤立训练动作。"
+  },
+  {
+    id:11, slug:"machine-fly", name:"坐姿器械夹胸", en:"Seated Machine Fly",
+    equipment:"器械", difficulty:"初级", primary:"胸大肌内侧", secondary:"三角肌前束",
+    badge:"新手首选",
+    gif:"https://media.tenor.com/k5ahyb6VmUkAAAAM/pec.gif",
+    youtube:"Iwe6AmxVf7o",
+    steps:[
+      "调整座椅高度,使把手与胸部中段齐平。",
+      "坐稳后,背部紧贴靠垫,双脚踩地。",
+      "双手握住把手,起始位双臂向两侧张开。",
+      "呼气,胸肌发力将两个把手向中间合拢,挤压胸肌。",
+      "吸气,缓慢回到起始位,感受拉伸。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>固定器械轨迹稳定,最适合初学者建立胸肌发力感觉。重量不要太大,重在动作质量和收缩感。",
+    summary:"坐姿器械夹胸(蝴蝶机)是新手最友好的胸肌训练动作,固定轨迹让你专注于胸肌收缩感。"
+  },
+  {
+    id:12, slug:"chest-press-machine", name:"坐姿推胸机", en:"Chest Press Machine",
+    equipment:"器械", difficulty:"初级", primary:"胸大肌(整体)", secondary:"肱三头肌、三角肌前束",
+    badge:"稳定安全",
+    gif:"https://media.tenor.com/u14Z6yqwnvgAAAAM/chest-press-dwayne-johnson.gif",
+    youtube:"VmB1G1K7v94",
+    steps:[
+      "调整座椅高度,让把手与胸中部齐平。",
+      "坐稳后,双手握住把手,背部贴紧靠垫。",
+      "呼气,双臂向前推,直至双臂完全伸直(但肘部不锁死)。",
+      "吸气,缓慢回放到起始位。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>比自由重量更稳定,适合初学者和康复期训练者发力。发力时专注胸肌,肘部不要外展过度。",
+    summary:"坐姿推胸机是稳定安全的胸肌训练器械,适合初学者、康复期或想孤立刺激胸肌的训练者。"
+  },
+  {
+    id:13, slug:"svend-press", name:"斯万推胸", en:"Svend Press",
+    equipment:"哑铃", difficulty:"中级", primary:"胸大肌内侧", secondary:"三角肌前束",
+    badge:"中缝强化",
+    gif:"https://media.tenor.com/RB3tYtS6924AAAAM/anilha-press.gif",
+    youtube:"YQOJoEog5dg",
+    steps:[
+      "站立或坐姿,双手合掌夹住一片较轻的哑铃(或两块哑铃并拢),置于胸前。",
+      "双手用力将哑铃向中间挤压(全程保持挤压)。",
+      "呼气,双臂向前推至完全伸直。",
+      "吸气,缓慢收回至胸前。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>这是一个常被忽视但极好的中缝激活动作。重点是全程保持双手对哑铃的挤压,这种等长收缩能有效刺激胸肌中缝。",
+    summary:"斯万推胸是针对胸肌中缝的等长收缩动作,适合作为胸肌训练前的激活动作或中缝专门训练。"
+  },
+  {
+    id:14, slug:"push-up", name:"标准俯卧撑", en:"Push-up",
+    equipment:"徒手", difficulty:"初级", primary:"胸大肌、三角肌前束", secondary:"核心、肱三头肌",
+    badge:"经典之选",
+    gif:"https://media.tenor.com/LacS3OF65QwAAAAM/push-ups-push-up.gif",
+    youtube:"IODxDxX7oi4",
+    steps:[
+      "俯撑姿势,双手略宽于肩,身体从头到脚呈一条直线。",
+      "核心收紧,臀部不要塌陷或翘起。",
+      "吸气,屈肘下放身体,直至胸部接近地面(约 2-3 厘米)。",
+      "呼气,胸肌和手臂发力将身体推回起始位,双臂完全伸直。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>最经典的徒手胸肌训练,任何地方都能做。新手可从跪姿俯卧撑开始;高手可加配重或抬高双脚增加难度。",
+    summary:"标准俯卧撑是最经典、最易获取的胸肌训练动作,无器械需求,适合各个水平训练者。"
+  },
+  {
+    id:15, slug:"incline-push-up", name:"上斜俯卧撑", en:"Incline Push-up",
+    equipment:"徒手", difficulty:"初级", primary:"胸大肌下部", secondary:"三角肌前束、核心",
+    badge:"新手入门",
+    gif:"https://media.tenor.com/e45GckrMBLEAAAAM/flex%C3%A3o-inclinada-no-banco.gif",
+    youtube:"cfpsHmCB7Qo",
+    steps:[
+      "双手撑在稳固的台面(椅子、桌子、墙)上,台面越高越简单。",
+      "身体呈一条直线,脚尖着地。",
+      "吸气,屈肘下放胸部至接近台面。",
+      "呼气发力推起。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>手部越高,难度越低,适合刚开始训练的新手和女性训练者。逐步降低台面高度,过渡到标准俯卧撑。",
+    summary:"上斜俯卧撑是新手最友好的俯卧撑变式,通过调整手部高度控制难度。"
+  },
+  {
+    id:16, slug:"decline-push-up", name:"下斜俯卧撑", en:"Decline Push-up",
+    equipment:"徒手", difficulty:"高级", primary:"胸大肌上部", secondary:"三角肌前束、核心",
+    badge:"上胸挑战",
+    gif:"https://media.tenor.com/lBF0RCkepZoAAAAM/imfact-jeup.gif",
+    youtube:"ZSCdK1SmQaU",
+    steps:[
+      "双脚抬高至椅子或凳子上,双手撑地,身体呈一条斜线。",
+      "核心收紧,身体保持一条直线。",
+      "吸气下放至胸部接近地面。",
+      "呼气发力推起。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>抬得越高越难。这个动作对上胸刺激强烈,核心参与度也很高。务必保持身体直线,不要塌腰。",
+    summary:"下斜俯卧撑是高难度上胸训练动作,适合有训练基础、希望挑战自我的训练者。"
+  },
+  {
+    id:17, slug:"wide-push-up", name:"宽距俯卧撑", en:"Wide Push-up",
+    equipment:"徒手", difficulty:"中级", primary:"胸大肌外侧", secondary:"三角肌前束",
+    badge:"拉伸外侧",
+    gif:"https://media.tenor.com/rMYOt44XtAoAAAAM/extreme-push-ups-elevated-push-ups.gif",
+    youtube:"rfizeDG4F9M",
+    steps:[
+      "俯撑姿势,双手间距约为肩宽的 1.5-2 倍。",
+      "身体呈一条直线,核心收紧。",
+      "下放时肘部外展角度更大,胸部有明显拉伸感。",
+      "发力推起。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>更宽的握距会更多刺激胸大肌外侧。但太宽会增加肩部压力,肩部不适者慎用。",
+    summary:"宽距俯卧撑针对胸大肌外侧,适合有一定训练基础、想发展胸肌外侧的训练者。"
+  },
+  {
+    id:18, slug:"diamond-push-up", name:"钻石俯卧撑", en:"Diamond Push-up",
+    equipment:"徒手", difficulty:"高级", primary:"胸大肌中缝、肱三头肌", secondary:"三角肌前束、核心",
+    badge:"中缝刺激",
+    gif:"https://media.tenor.com/Fj8gvbwsilcAAAAM/abs-workout.gif",
+    youtube:"J0DnG1_S92I",
+    steps:[
+      "俯撑姿势,双手并拢,拇指和食指相触形成一个菱形。",
+      "身体保持一条直线,核心收紧。",
+      "下放时肘部紧贴身体两侧,胸部贴近手背。",
+      "发力推起。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>对中缝和肱三头肌刺激极强,但对手腕要求较高,初学者建议先做标准俯卧撑积累力量。",
+    summary:"钻石俯卧撑是高级徒手动作,对胸肌中缝和肱三头肌刺激极强。"
+  },
+  {
+    id:19, slug:"push-up-plus", name:"俯卧撑架夹胸", en:"Push-up Plus",
+    equipment:"徒手", difficulty:"中级", primary:"胸大肌下部和内侧", secondary:"前锯肌、三角肌前束",
+    badge:"深度拉伸",
+    gif:"https://media.tenor.com/PG2rYHA4AaEAAAAM/pushup-bar.gif",
+    youtube:"2P-8B8Sv7sE",
+    steps:[
+      "使用俯卧撑架(或两个稳固的把手),双手握住。",
+      "起始位为标准俯卧撑姿势。",
+      "下放到最低点时,胸肌被充分拉伸。",
+      "发力推起,在最高点时肩胛骨前伸(让上身多推一点点)。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>俯卧撑架让你下放得更深,大幅增加胸肌拉伸。最高点时的额外前伸可强化前锯肌。",
+    summary:"俯卧撑架夹胸通过加深活动范围,让胸肌在最低点获得更大拉伸,提升训练效果。"
+  },
+  {
+    id:20, slug:"dumbbell-pullover", name:"双臂哑铃上举卧推", en:"Pull-over (Dumbbell)",
+    equipment:"哑铃", difficulty:"中级", primary:"胸大肌上部和背阔肌", secondary:"前锯肌、肱三头肌长头",
+    badge:"辅助训练",
+    gif:"https://media.tenor.com/iKKHtdZ2QwUAAAAM/workout-lifting.gif",
+    youtube:"FK4rHfWKEac",
+    steps:[
+      "横躺凳上,只让肩胛骨支撑身体,双手合握一只哑铃,双臂伸直举于胸上方。",
+      "肘部微屈固定。",
+      "吸气,缓慢将哑铃沿弧线下放至头顶后方,感受胸肌拉伸。",
+      "呼气,胸肌发力将哑铃沿原弧线拉回起始位。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>这是一个老派的胸肌辅助动作,对胸肌上部延展性帮助很大。动作全程保持肘部角度不变。",
+    summary:"哑铃上举卧推是经典辅助动作,主要训练胸肌上部和背阔肌,对延展性训练特别有效。"
+  },
+  {
+    id:21, slug:"chest-dip", name:"双杠臂屈伸(胸肌版)", en:"Dips (Chest Version)",
+    equipment:"器械", difficulty:"高级", primary:"胸大肌下部和内侧", secondary:"肱三头肌、三角肌前束",
+    badge:"下胸王牌",
+    gif:"https://media.tenor.com/tqaSNPv4mcsAAAAM/ppef-pereposamenforma.gif",
+    youtube:"2z8JmcrW-As",
+    steps:[
+      "握紧双杠,起始位为双臂伸直支撑身体。",
+      "身体略微前倾(这是与三头肌版本的关键区别)。",
+      "吸气,屈肘下放身体,直至胸部与双杠同高。",
+      "呼气,胸肌发力将身体推回起始位。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>身体前倾是关键——这会把压力从肱三头肌转移到胸肌。下放时肘部外展,不要夹紧。初学者可用弹力带辅助。",
+    summary:"双杠臂屈伸(胸肌版)是下胸训练的王牌动作,身体前倾是关键,能让胸大肌下部获得最大刺激。"
+  },
+  {
+    id:22, slug:"band-chest-fly", name:"弹力带夹胸", en:"Band Chest Fly",
+    equipment:"徒手", difficulty:"初级", primary:"胸大肌(整体)", secondary:"三角肌前束",
+    badge:"居家热身",
+    gif:"https://media.tenor.com/rXOedjUtd8kAAAAM/banded-press.gif",
+    youtube:"gIqiG1bT3sg",
+    steps:[
+      "将弹力带固定在身后(或门扣上),双手握住两端。",
+      "站姿稳定,双臂向两侧伸直,与肩同高。",
+      "呼气,胸肌发力将双手向中间合拢,挤压胸肌。",
+      "吸气,缓慢回到起始位,感受拉伸。",
+      "重复。"
+    ],
+    tips:"<b>核心要点:</b>弹力带提供可变阻力,越接近合拢阻力越大,非常适合作为热身或居家训练。也可作为俯卧撑前的激活动作。",
+    summary:"弹力带夹胸是居家友好的胸肌训练动作,变阻力特性让胸肌在全程受到良好刺激,也适合作为训练前热身。"
+  }
+];
+
+const EQUIPMENT_LIST = ["杠铃","哑铃","器械","绳索","徒手"];
+const EQUIPMENT_ICON = {
+  '杠铃': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M8 24v16M16 20v24M48 20v24M56 24v16M16 32h32"/><circle cx="16" cy="32" r="2" fill="currentColor"/><circle cx="48" cy="32" r="2" fill="currentColor"/></svg>`,
+  '哑铃': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M14 20v24M22 16v32M42 16v32M50 20v24M22 32h20"/></svg>`,
+  '器械': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><rect x="10" y="26" width="6" height="12" rx="2"/><rect x="48" y="26" width="6" height="12" rx="2"/><path d="M16 32h32M28 16v8M36 16v8M24 24h16v16H24z"/></svg>`,
+  '绳索': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12v40M56 12v40M14 12c0 8 4 8 4 16s-4 8-4 16M50 12c0 8-4 8-4 16s4 8 4 16M8 12h48M8 52h48"/></svg>`,
+  '徒手': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="14" r="4"/><path d="M20 56V40l-4-12M44 56V40l4-12M20 40h24M26 28l6 12 6-12"/></svg>`
+};
+
+/* ====== 主页逻辑 ====== */
+let currentFilter = 'all';
+let currentSearch = '';
+const grid = document.getElementById('grid');
+const statCount = document.getElementById('stat-count');
+const searchInput = document.getElementById('search-input');
+
+function renderHome(){
+  const filtered = EXERCISES.filter(ex => {
+    const matchFilter = currentFilter === 'all' || ex.equipment === currentFilter;
+    const matchSearch = !currentSearch ||
+      ex.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
+      ex.en.toLowerCase().includes(currentSearch.toLowerCase()) ||
+      ex.primary.includes(currentSearch);
+    return matchFilter && matchSearch;
+  });
+
+  if(filtered.length === 0){
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="ico">🔍</div><p>没有找到匹配的动作,试试别的关键词</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(ex => `
+    <article class="card" data-slug="${ex.slug}">
+      <div class="card-media">
+        <span class="badge">${ex.badge}</span>
+        <img src="${ex.gif}" alt="${ex.name}" loading="lazy" />
+        <div class="play-ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${ex.name}</h3>
+        <p class="card-sub">${ex.en} · 重点:${ex.primary}</p>
+        <div class="card-tags">
+          <span class="tag">${ex.equipment}</span>
+          <span class="tag diff-${ex.difficulty === '初级' ? 'beginner' : ex.difficulty === '中级' ? 'intermediate' : 'advanced'}">${ex.difficulty}</span>
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', e => {
+      // 单击 = 快速预览模态框;带 Ctrl/Cmd/中键 = 直接跳详情页
+      if(e.ctrlKey || e.metaKey || e.button === 1){
+        navigate(`#/exercise/${card.dataset.slug}`);
+        return;
+      }
+      const ex = EXERCISES.find(x => x.slug === card.dataset.slug);
+      if(ex) openModal(ex);
+    });
+  });
+}
+
+/* ====== 详情模态框(快速预览) ====== */
+const modal = document.getElementById('modal');
+const modalBody = document.getElementById('modal-body');
+const modalClose = document.getElementById('modal-close');
+const modalGif = document.getElementById('modal-gif');
+
+function openModal(ex){
+  modalGif.src = ex.gif;
+  modalBody.innerHTML = `
+    <h2>${ex.name}</h2>
+    <p class="sub">${ex.en} · ${ex.badge}</p>
+    <div class="modal-grid">
+      <div class="info-box"><div class="lbl">器械</div><div class="val">${ex.equipment}</div></div>
+      <div class="info-box"><div class="lbl">难度</div><div class="val">${ex.difficulty}</div></div>
+      <div class="info-box"><div class="lbl">主要肌群</div><div class="val">${ex.primary}</div></div>
+      <div class="info-box"><div class="lbl">协同肌群</div><div class="val">${ex.secondary}</div></div>
+    </div>
+    <div class="section-block">
+      <h3><span class="num">${ex.steps.length}</span>动作步骤</h3>
+      <ol class="steps">${ex.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+    </div>
+    <div class="section-block">
+      <h3><span class="num">!</span>教练提示</h3>
+      <div class="tip">${ex.tips}</div>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="#/exercise/${ex.slug}" class="nav-cta" style="display:inline-block;padding:12px 28px">
+        查看完整教程页 →
+      </a>
+    </div>
+  `;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Lenis 停止滚动(模态框打开时背景固定)
+  lenis.stop();
+  // 立即把滚动位置拉回顶部,防止背景被滚到中段
+  lenis.scrollTo(0, {immediate: true, force: true});
+}
+
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  modalGif.src = '';
+  // Lenis 恢复滚动
+  lenis.start();
+}
+
+/* ====== 二级页:动作详情页 ====== */
+function renderDetailPage(slug){
+  const ex = EXERCISES.find(e => e.slug === slug);
+  if(!ex){ return renderNotFound(); }
+
+  const related = EXERCISES
+    .filter(e => e.id !== ex.id && (e.equipment === ex.equipment || e.primary.includes(ex.primary.split('(')[0])))
+    .slice(0,4);
+
+  const view = document.getElementById('view-detail');
+  view.innerHTML = `
+    <div class="detail-hero">
+      <div class="detail-hero-inner">
+        <div>
+          <div class="breadcrumbs">
+            <a href="#/">首页</a>
+            <span class="sep">›</span>
+            <a href="#/">胸部</a>
+            <span class="sep">›</span>
+            <span>${ex.name}</span>
+          </div>
+          <h1>${ex.name}</h1>
+          <p class="en-name">${ex.en} · ${ex.badge}</p>
+          <p class="summary">${ex.summary}</p>
+          <div class="badges">
+            <span class="tag">器械:${ex.equipment}</span>
+            <span class="tag diff-${ex.difficulty === '初级' ? 'beginner' : ex.difficulty === '中级' ? 'intermediate' : 'advanced'}">难度:${ex.difficulty}</span>
+          </div>
+          <div class="detail-meta">
+            <div class="info-box"><div class="lbl">主要肌群</div><div class="val">${ex.primary}</div></div>
+            <div class="info-box"><div class="lbl">协同肌群</div><div class="val">${ex.secondary}</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="gif-wrap">
+            <img src="${ex.gif}" alt="${ex.name}" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-content">
+      <div>
+        <div class="section-block">
+          <h3><span class="num">${ex.steps.length}</span>动作步骤详解</h3>
+          <ol class="steps">${ex.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+        </div>
+        <div class="section-block">
+          <h3><span class="num">!</span>教练提示</h3>
+          <div class="tip">${ex.tips}</div>
+        </div>
+        <div class="section-block">
+          <h3><span class="num">▶</span>视频教程</h3>
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/${ex.youtube}?vq=hd1440&rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=${ex.youtube}&playsinline=1" title="${ex.name} 教程" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="section-block">
+          <h3>相关动作</h3>
+          <div class="related-grid">
+            ${related.map(r => `
+              <a class="related-card" href="#/exercise/${r.slug}">
+                <img src="${r.gif}" alt="${r.name}" loading="lazy" />
+                <div class="info">
+                  <div class="name">${r.name}</div>
+                  <div class="sub">${r.equipment} · ${r.difficulty}</div>
+                </div>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+        <div class="section-block">
+          <h3>训练建议</h3>
+          <div class="tip" style="margin-bottom:12px">
+            <b>组数:</b> 初学者 3 组 × 8-12 次,进阶者 4 组 × 6-12 次
+          </div>
+          <div class="tip" style="margin-bottom:12px">
+            <b>重量:</b> 选择能完成目标次数、最后 2 次力竭的重量
+          </div>
+          <div class="tip">
+            <b>休息:</b> 大肌群动作组间休息 60-90 秒,孤立动作 45-60 秒
+          </div>
+        </div>
+      </aside>
+    </div>
+  `;
+}
+
+/* ====== 三级页:器械分类页 ====== */
+function renderCategoryPage(equipment){
+  const list = EXERCISES.filter(e => e.equipment === equipment);
+  const view = document.getElementById('view-category');
+
+  if(list.length === 0){
+    view.innerHTML = `
+      <div class="cat-hero">
+        <h1>${equipment}</h1>
+        <p>该部位的动作库正在建设中,敬请期待</p>
+      </div>
+      <div class="container">
+        <p style="text-align:center;color:var(--text-dim)">先来练练胸肌吧! <a href="#/" style="color:var(--accent)">返回胸部训练库 →</a></p>
+      </div>
+    `;
+    return;
+  }
+
+  const diffCount = list.reduce((acc, e) => {
+    acc[e.difficulty] = (acc[e.difficulty]||0)+1;
+    return acc;
+  }, {});
+
+  view.innerHTML = `
+    <div class="cat-hero">
+      <div class="cat-icon">${EQUIPMENT_ICON[equipment] || ''}</div>
+      <h1>${equipment} 训练</h1>
+      <p>所有使用 <b>${equipment}</b> 的胸肌训练动作,共 ${list.length} 个。</p>
+      <div class="count">${(diffCount['初级']||0)} 个初级 · ${(diffCount['中级']||0)} 个中级 · ${(diffCount['高级']||0)} 个高级</div>
+    </div>
+    <div class="container">
+      <div class="grid">
+        ${list.map(ex => `
+          <article class="card" data-slug="${ex.slug}">
+            <div class="card-media">
+              <span class="badge">${ex.badge}</span>
+              <img src="${ex.gif}" alt="${ex.name}" loading="lazy" />
+              <div class="play-ico">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">${ex.name}</h3>
+              <p class="card-sub">${ex.en} · 重点:${ex.primary}</p>
+              <div class="card-tags">
+                <span class="tag diff-${ex.difficulty === '初级' ? 'beginner' : ex.difficulty === '中级' ? 'intermediate' : 'advanced'}">${ex.difficulty}</span>
+              </div>
+            </div>
+          </article>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  view.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', e => {
+      if(e.ctrlKey || e.metaKey || e.button === 1){
+        navigate(`#/exercise/${card.dataset.slug}`);
+        return;
+      }
+      const ex = EXERCISES.find(x => x.slug === card.dataset.slug);
+      if(ex) openModal(ex);
+    });
+  });
+}
+
+function renderNotFound(){
+  document.getElementById('view-detail').innerHTML = `
+    <div class="container" style="text-align:center;padding:100px 20px">
+      <div style="font-size:64px;margin-bottom:16px">😕</div>
+      <h2>未找到该动作</h2>
+      <p style="color:var(--text-dim);margin-top:8px">
+        <a href="#/" style="color:var(--accent)">返回首页</a>
+      </p>
+    </div>
+  `;
+}
+
+/* ====== 路由 ====== */
+function showView(name){
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + name).classList.add('active');
+  // 用 Lenis 立即滚到顶部(切换视图的瞬间)
+  lenis.scrollTo(0, {immediate: true, force: true});
+}
+
+function navigate(hash){
+  window.location.hash = hash;
+}
+
+function handleRoute(){
+  const hash = window.location.hash || '#/';
+  closeModal();
+
+  // 隐藏所有视图
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+
+  if(hash === '#/' || hash === ''){
+    showView('home');
+    updateNavLink('chest');
+  }
+  else if(hash.startsWith('#/exercise/')){
+    const slug = hash.replace('#/exercise/','');
+    showView('detail');
+    renderDetailPage(slug);
+    updateNavLink(null);
+  }
+  else if(hash.startsWith('#/category/')){
+    const cat = decodeURIComponent(hash.replace('#/category/',''));
+    showView('category');
+    renderCategoryPage(cat);
+    updateNavLink(null);
+  }
+  else {
+    showView('home');
+  }
+}
+
+function updateNavLink(cat){
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.classList.toggle('active', a.dataset.cat === cat);
+  });
+}
+
+/* ====== 事件绑定 ====== */
+document.querySelectorAll('[data-filter]').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter]').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    currentFilter = chip.dataset.filter;
+    renderHome();
+  });
+});
+
+searchInput.addEventListener('input', e => {
+  currentSearch = e.target.value.trim();
+  renderHome();
+});
+
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+
+/* ====== 打赏弹层 ====== */
+const supportFab = document.getElementById('support-fab');
+const supportModal = document.getElementById('support-modal');
+const supportClose = document.getElementById('support-close');
+
+function openSupport(){
+  supportModal.classList.add('open');
+  lenis.stop();
+  lenis.scrollTo(0, {immediate: true, force: true});
+}
+function closeSupport(){
+  supportModal.classList.remove('open');
+  lenis.start();
+}
+supportFab.addEventListener('click', openSupport);
+supportClose.addEventListener('click', closeSupport);
+supportModal.addEventListener('click', e => { if(e.target === supportModal) closeSupport(); });
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    closeModal();
+    closeSupport();
+  }
+});
+
+document.getElementById('brand').addEventListener('click', e => {
+  e.preventDefault();
+  navigate('#/');
+});
+
+// 数字动画
+function animateCount(target){
+  let n = 0;
+  const step = Math.max(1, Math.floor(target / 30));
+  const tick = () => {
+    n = Math.min(target, n + step);
+    statCount.textContent = n;
+    if(n < target) requestAnimationFrame(tick);
+  };
+  tick();
+}
+
+/* ====== 启动 ====== */
+renderHome();
+animateCount(EXERCISES.length);
+window.addEventListener('hashchange', handleRoute);
+handleRoute();
+</script>
+</body>
+</html>
