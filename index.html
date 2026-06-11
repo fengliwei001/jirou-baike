@@ -12,6 +12,9 @@
 <meta name="baiduspider" content="index, follow" />
 <link rel="canonical" href="https://fengliwei001.github.io/jirou-baike/" />
 
+<!-- 不蒜子统计 - 国内最快的免费站点统计(免注册) -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <!-- Open Graph 微信/QQ/微博分享卡片 -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="肌肉百科 - 中文胸肌训练动作库" />
@@ -439,6 +442,150 @@
     .support-modal{padding:32px 22px 24px}
   }
 
+  /* ---------- 训练计划生成器 CTA 区块 ---------- */
+  .plan-cta{
+    background:linear-gradient(135deg,#16181d 0%,#1c1f26 100%);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:80px 28px;
+    position:relative;overflow:hidden;
+  }
+  .plan-cta::before{
+    content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;
+    background:radial-gradient(circle,rgba(255,90,60,.15),transparent 70%);
+    transform:translate(-50%,-50%);pointer-events:none;
+  }
+  .plan-cta-inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;
+    position:relative;
+  }
+  .plan-cta-left h2{font-size:clamp(28px,3.5vw,40px);font-weight:800;margin:0 0 16px;line-height:1.2;letter-spacing:-.5px}
+  .plan-cta-left h2 .accent{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .plan-cta-left p{font-size:15px;color:var(--text-dim);line-height:1.7;margin:0 0 24px}
+  .plan-features{list-style:none;padding:0;margin:0 0 32px}
+  .plan-features li{padding:8px 0;color:var(--text);font-size:14.5px}
+  .plan-cta-btn{
+    display:inline-block;padding:16px 32px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;font-size:15px;font-weight:600;text-decoration:none;
+    box-shadow:0 10px 30px rgba(255,90,60,.4);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .plan-cta-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,90,60,.55)}
+  .plan-cta-mock{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;
+    padding:24px;transform:rotate(1.5deg);
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+  }
+  .mock-week{
+    font-size:13px;color:var(--accent);font-weight:700;margin-bottom:14px;
+    padding-bottom:10px;border-bottom:1px solid var(--line);
+  }
+  .mock-day{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:14px;margin-bottom:10px;
+  }
+  .mock-day.alt{background:rgba(255,90,60,.05);border-color:rgba(255,90,60,.2)}
+  .mock-day-name{font-size:14px;font-weight:700;margin-bottom:8px}
+  .mock-ex{font-size:12.5px;color:var(--text-dim);padding:3px 0;font-family:ui-monospace,monospace}
+  @media (max-width:860px){
+    .plan-cta-inner{grid-template-columns:1fr;gap:40px}
+    .plan-cta-mock{transform:none}
+  }
+
+  /* ---------- 训练计划生成器 视图 ---------- */
+  .plan-hero{
+    padding:60px 28px 30px;text-align:center;
+    background:radial-gradient(900px 400px at 50% -50px,rgba(255,90,60,.13),transparent 60%);
+  }
+  .plan-hero h1{font-size:clamp(28px,4vw,40px);font-weight:800;margin:0 0 8px;letter-spacing:-.3px}
+  .plan-hero p{color:var(--text-dim);margin:0;font-size:15px}
+  .plan-container{max-width:900px;margin:0 auto;padding:0 28px 80px}
+  .plan-form{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;
+    padding:32px;margin-bottom:30px;
+  }
+  .plan-step{margin-bottom:24px}
+  .plan-step h3{font-size:17px;font-weight:700;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  .plan-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .plan-options.plan-eq{grid-template-columns:repeat(5,1fr)}
+  .plan-opt{
+    cursor:pointer;position:relative;display:block;
+  }
+  .plan-opt input{position:absolute;opacity:0;pointer-events:none}
+  .plan-opt div{
+    padding:14px;border-radius:12px;background:var(--panel);
+    border:2px solid var(--line);text-align:center;
+    transition:all .15s;
+  }
+  .plan-opt b{display:block;font-size:14px;margin-bottom:2px}
+  .plan-opt span{display:block;font-size:12px;color:var(--text-dim)}
+  .plan-opt input:checked + div{
+    background:rgba(255,90,60,.1);
+    border-color:var(--accent);
+    color:var(--text);
+  }
+  .plan-opt div:hover{border-color:#3a3e4a}
+  .plan-generate{
+    width:100%;padding:16px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;font-size:16px;font-weight:700;cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,90,60,.4);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .plan-generate:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,90,60,.55)}
+  @media (max-width:580px){
+    .plan-options{grid-template-columns:1fr}
+    .plan-options.plan-eq{grid-template-columns:repeat(2,1fr)}
+    .plan-form{padding:22px}
+  }
+  .plan-result{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;
+    padding:32px;animation:fadeIn .3s;
+  }
+  .plan-result h2{font-size:24px;font-weight:800;margin:0 0 8px}
+  .plan-result .plan-summary{
+    color:var(--text-dim);font-size:14px;margin-bottom:24px;line-height:1.6;
+    padding:14px 18px;background:rgba(62,207,142,.08);border:1px solid rgba(62,207,142,.2);
+    border-radius:12px;border-left:3px solid var(--good);
+  }
+  .plan-week{
+    margin-bottom:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  }
+  .plan-week-head{
+    background:var(--panel);padding:12px 18px;font-weight:700;font-size:15px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .plan-week-head .tag-week{color:var(--accent)}
+  .plan-day{
+    padding:16px 18px;border-top:1px solid var(--line);
+  }
+  .plan-day-head{
+    display:flex;align-items:center;gap:8px;margin-bottom:10px;
+  }
+  .plan-day-head b{font-size:14px}
+  .plan-day-head .day-tag{
+    background:rgba(255,90,60,.15);color:var(--accent-2);
+    padding:2px 10px;border-radius:6px;font-size:11px;font-weight:600;
+  }
+  .plan-ex{
+    display:flex;align-items:center;gap:10px;padding:8px 0;
+    border-top:1px solid var(--line);
+  }
+  .plan-ex:first-of-type{border-top:0}
+  .plan-ex-name{flex:1;font-size:14px}
+  .plan-ex-sets{
+    font-size:12px;font-family:ui-monospace,monospace;
+    color:var(--text-dim);background:var(--panel);
+    padding:3px 10px;border-radius:6px;white-space:nowrap;
+  }
+  .plan-ex a{
+    color:var(--accent);font-size:12px;padding:4px 10px;border-radius:6px;
+    background:rgba(255,90,60,.1);text-decoration:none;
+  }
+  .plan-ex a:hover{background:rgba(255,90,60,.2)}
+
   /* ---------- 响应式 ---------- */
   @media (max-width:860px){
     .detail-hero-inner{grid-template-columns:1fr;gap:24px}
@@ -470,6 +617,7 @@
   </div>
   <nav class="nav-links">
     <a href="#/" data-cat="chest" class="nav-link">胸部</a>
+    <a href="#/plan" class="nav-link">训练计划</a>
     <a href="#/category/背部" class="nav-link">背部</a>
     <a href="#/category/肩部" class="nav-link">肩部</a>
     <a href="#/category/腿部" class="nav-link">腿部</a>
@@ -512,11 +660,89 @@
   </div>
 </main>
 
+<!-- ============ 训练计划生成器 区块 ============ -->
+<section class="plan-cta" id="plan-cta">
+  <div class="plan-cta-inner">
+    <div class="plan-cta-left">
+      <h2>不知道每天练什么?<br>让肌肉百科为你定制<span class="accent">专属计划</span></h2>
+      <p>选择目标 + 频率 + 难度,30 秒生成 4 周专业训练计划。每个动作都附带 GIF 示范和视频教程,新手也能立刻上手。</p>
+      <ul class="plan-features">
+        <li>✓ 增肌 / 减脂 / 塑形 三大目标</li>
+        <li>✓ 新手 3 天 / 进阶 4 天 / 高阶 5 天</li>
+        <li>✓ 自动匹配你的器械环境</li>
+        <li>✓ 22 个胸肌动作 + 持续扩展中</li>
+      </ul>
+      <a href="#/plan" class="plan-cta-btn">生成我的训练计划 →</a>
+    </div>
+    <div class="plan-cta-right">
+      <div class="plan-cta-mock">
+        <div class="mock-week">第 1 周</div>
+        <div class="mock-day">
+          <div class="mock-day-name">周一 · 胸</div>
+          <div class="mock-ex">杠铃平板卧推 4×8</div>
+          <div class="mock-ex">哑铃上斜卧推 3×10</div>
+          <div class="mock-ex">绳索夹胸 3×12</div>
+        </div>
+        <div class="mock-day alt">
+          <div class="mock-day-name">周三 · 腿</div>
+          <div class="mock-ex">深蹲 4×8</div>
+          <div class="mock-ex">罗马尼亚硬拉 3×10</div>
+        </div>
+        <div class="mock-day">
+          <div class="mock-day-name">周五 · 胸</div>
+          <div class="mock-ex">哑铃平板卧推 4×10</div>
+          <div class="mock-ex">俯卧撑 3×力竭</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 视图 2: 动作详情页 ============ -->
 <main class="view" id="view-detail"></main>
 
 <!-- ============ 视图 3: 分类页 ============ -->
 <main class="view" id="view-category"></main>
+
+<!-- ============ 视图 4: 训练计划生成器 ============ -->
+<main class="view" id="view-plan">
+  <div class="plan-hero">
+    <h1>4 周训练计划生成器</h1>
+    <p>选择你的目标和条件,马上获得个性化训练计划</p>
+  </div>
+  <div class="plan-container">
+    <div class="plan-form" id="plan-form">
+      <div class="plan-step">
+        <h3>① 你的目标是什么?</h3>
+        <div class="plan-options" data-name="goal">
+          <label class="plan-opt"><input type="radio" name="goal" value="muscle" checked><div><b>增肌</b><span>最大化肌肉量</span></div></label>
+          <label class="plan-opt"><input type="radio" name="goal" value="fat"><div><b>减脂</b><span>保持肌肉,燃烧脂肪</span></div></label>
+          <label class="plan-opt"><input type="radio" name="goal" value="shape"><div><b>塑形</b><span>紧致线条,提升气质</span></div></label>
+        </div>
+      </div>
+      <div class="plan-step">
+        <h3>② 每周能练几天?</h3>
+        <div class="plan-options" data-name="days">
+          <label class="plan-opt"><input type="radio" name="days" value="3"><div><b>3 天</b><span>新手友好</span></div></label>
+          <label class="plan-opt"><input type="radio" name="days" value="4" checked><div><b>4 天</b><span>进阶推荐</span></div></label>
+          <label class="plan-opt"><input type="radio" name="days" value="5"><div><b>5 天</b><span>高阶训练</span></div></label>
+        </div>
+      </div>
+      <div class="plan-step">
+        <h3>③ 你有哪些器械?</h3>
+        <div class="plan-options plan-eq">
+          <label class="plan-opt"><input type="checkbox" name="eq" value="杠铃" checked><div><b>杠铃</b></div></label>
+          <label class="plan-opt"><input type="checkbox" name="eq" value="哑铃" checked><div><b>哑铃</b></div></label>
+          <label class="plan-opt"><input type="checkbox" name="eq" value="器械" checked><div><b>固定器械</b></div></label>
+          <label class="plan-opt"><input type="checkbox" name="eq" value="绳索"><div><b>绳索</b></div></label>
+          <label class="plan-opt"><input type="checkbox" name="eq" value="徒手" checked><div><b>徒手</b></div></label>
+        </div>
+      </div>
+      <button class="plan-generate" id="plan-generate">生成我的 4 周计划</button>
+    </div>
+    <div class="plan-result" id="plan-result" style="display:none"></div>
+  </div>
+</main>
 
 <!-- ============ 详情模态框(快速预览) ============ -->
 <div class="modal-backdrop" id="modal" data-lenis-prevent>
@@ -536,6 +762,10 @@
 <footer class="foot">
   <p>肌肉百科 · 中文版 · 仅作健身教学参考,训练前请充分热身</p>
   <p style="margin-top:8px"><a href="#/">关于</a>·<a href="#/">免责声明</a>·<a href="#/">联系我们</a></p>
+  <p style="margin-top:12px;font-size:12px;opacity:.7">
+    本站已被 <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> 次访问 ·
+    在线 <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> 人
+  </p>
 </footer>
 
 <!-- ============ 打赏 + 联系 浮窗按钮 ============ -->
@@ -1293,6 +1523,11 @@ function handleRoute(){
     showView('home');
     updateNavLink('chest');
   }
+  else if(hash === '#/plan'){
+    showView('plan');
+    document.getElementById('plan-result').style.display = 'none';
+    updateNavLink(null);
+  }
   else if(hash.startsWith('#/exercise/')){
     const slug = hash.replace('#/exercise/','');
     showView('detail');
@@ -1312,8 +1547,235 @@ function handleRoute(){
 
 function updateNavLink(cat){
   document.querySelectorAll('.nav-link').forEach(a => {
-    a.classList.toggle('active', a.dataset.cat === cat);
+    a.classList.toggle('active', a.dataset.cat === cat || a.getAttribute('href') === window.location.hash);
   });
+}
+
+/* ====== 训练计划生成器 ====== */
+const PLAN_TEMPLATES = {
+  // 4 天计划(默认):周一胸/周二背/周三腿/周四肩+臂/周五胸/周末休息
+  muscle: {
+    3: {
+      name:'增肌 · 每周 3 天(全身循环)',
+      split:[
+        {day:'周一',tag:'全身 A',focus:'推 + 腿',muscles:['chest','quads']},
+        {day:'周三',tag:'全身 B',focus:'拉 + 后链',muscles:['back','hamstrings']},
+        {day:'周五',tag:'全身 C',focus:'肩 + 臂 + 核心',muscles:['shoulders','arms','core']}
+      ]
+    },
+    4: {
+      name:'增肌 · 每周 4 天(上下肢分化)',
+      split:[
+        {day:'周一',tag:'上肢推',focus:'胸 + 肩 + 三头',muscles:['chest','shoulders']},
+        {day:'周二',tag:'下肢',focus:'腿 + 臀',muscles:['quads','hamstrings','glutes']},
+        {day:'周四',tag:'上肢拉',focus:'背 + 二头',muscles:['back','arms']},
+        {day:'周六',tag:'上肢加强',focus:'胸 + 三头 + 核心',muscles:['chest','arms','core']}
+      ]
+    },
+    5: {
+      name:'增肌 · 每周 5 天(部位分化)',
+      split:[
+        {day:'周一',tag:'胸',focus:'胸大肌',muscles:['chest']},
+        {day:'周二',tag:'背',focus:'背阔肌 + 厚度',muscles:['back']},
+        {day:'周三',tag:'腿',focus:'股四 + 后链',muscles:['quads','hamstrings','glutes']},
+        {day:'周四',tag:'肩 + 臂',focus:'三角肌 + 二三头',muscles:['shoulders','arms']},
+        {day:'周五',tag:'胸 + 核心',focus:'上胸 + 核心',muscles:['chest','core']}
+      ]
+    }
+  },
+  fat: {
+    3: {
+      name:'减脂 · 每周 3 天(高强度循环)',
+      split:[
+        {day:'周一',tag:'HIIT A',focus:'全身爆发',muscles:['chest','quads','core']},
+        {day:'周三',tag:'HIIT B',focus:'全身耐力',muscles:['back','hamstrings','core']},
+        {day:'周五',tag:'HIIT C',focus:'全身塑形',muscles:['shoulders','arms','glutes']}
+      ]
+    },
+    4: {
+      name:'减脂 · 每周 4 天(力量 + 有氧)',
+      split:[
+        {day:'周一',tag:'上肢 + HIIT',focus:'胸 + 背',muscles:['chest','back']},
+        {day:'周二',tag:'下肢 + HIIT',focus:'腿 + 臀',muscles:['quads','glutes','hamstrings']},
+        {day:'周四',tag:'全身循环',focus:'推 + 拉 + 核心',muscles:['chest','back','core']},
+        {day:'周六',tag:'上肢塑形',focus:'肩 + 臂 + 核心',muscles:['shoulders','arms','core']}
+      ]
+    },
+    5: {
+      name:'减脂 · 每周 5 天(高强度 5 练)',
+      split:[
+        {day:'周一',tag:'胸 + HIIT',focus:'胸 + 燃脂',muscles:['chest','core']},
+        {day:'周二',tag:'背 + HIIT',focus:'背 + 燃脂',muscles:['back','core']},
+        {day:'周三',tag:'腿 + HIIT',focus:'腿 + 燃脂',muscles:['quads','hamstrings']},
+        {day:'周四',tag:'肩 + HIIT',focus:'肩 + 燃脂',muscles:['shoulders','core']},
+        {day:'周五',tag:'全身 HIIT',focus:'高强度全身',muscles:['chest','back','legs','core']}
+      ]
+    }
+  },
+  shape: {
+    3: {
+      name:'塑形 · 每周 3 天(轻重量多次数)',
+      split:[
+        {day:'周一',tag:'上肢塑形',focus:'胸 + 背',muscles:['chest','back']},
+        {day:'周三',tag:'下肢塑形',focus:'腿 + 臀',muscles:['quads','glutes']},
+        {day:'周五',tag:'全身塑形',focus:'肩 + 臂 + 核心',muscles:['shoulders','arms','core']}
+      ]
+    },
+    4: {
+      name:'塑形 · 每周 4 天(均衡塑形)',
+      split:[
+        {day:'周一',tag:'胸 + 三头',focus:'上肢塑形',muscles:['chest','arms']},
+        {day:'周二',tag:'背 + 二头',focus:'上身塑形',muscles:['back','arms']},
+        {day:'周四',tag:'腿 + 臀',focus:'下肢塑形',muscles:['quads','glutes','hamstrings']},
+        {day:'周六',tag:'肩 + 核心',focus:'全身线条',muscles:['shoulders','core']}
+      ]
+    },
+    5: {
+      name:'塑形 · 每周 5 天(精细塑形)',
+      split:[
+        {day:'周一',tag:'胸',focus:'胸部线条',muscles:['chest']},
+        {day:'周二',tag:'背',focus:'背部线条',muscles:['back']},
+        {day:'周三',tag:'腿 + 臀',focus:'下肢线条',muscles:['quads','glutes','hamstrings']},
+        {day:'周四',tag:'肩 + 臂',focus:'手臂线条',muscles:['shoulders','arms']},
+        {day:'周五',tag:'核心 + HIIT',focus:'腰腹 + 燃脂',muscles:['core']}
+      ]
+    }
+  }
+};
+
+// 简易动作库映射(基于现有 EXERCISES 数据 + 模板)
+function buildDayExercises(muscleSet, equipment, difficulty, goal){
+  const reps = goal === 'fat' ? '12-15' : goal === 'shape' ? '12-15' : '8-12';
+  const sets = goal === 'fat' ? '3' : '4';
+  const rest = goal === 'fat' ? '45s' : '60-90s';
+
+  // 从已有 EXERCISES 中按肌群+器械过滤
+  const exs = EXERCISES.filter(e => {
+    const equipMatch = e.equipment === '徒手' || equipment.includes(e.equipment);
+    return equipMatch;
+  });
+
+  // 按肌群分类(简化映射:根据 primary 关键词)
+  const byMuscle = {
+    chest: exs.filter(e => e.primary.includes('胸')),
+    back: exs.filter(e => e.primary.includes('背') || e.primary.includes('斜方')),
+    shoulders: exs.filter(e => e.primary.includes('三角') || e.primary.includes('肩')),
+    arms: exs.filter(e => e.primary.includes('肱') || e.primary.includes('二头') || e.primary.includes('三头')),
+    legs: exs.filter(e => e.primary.includes('股') || e.primary.includes('腘') || e.primary.includes('臀') || e.primary.includes('腿')),
+    quads: exs.filter(e => e.primary.includes('股')),
+    hamstrings: exs.filter(e => e.primary.includes('腘')),
+    glutes: exs.filter(e => e.primary.includes('臀')),
+    core: exs.filter(e => e.primary.includes('核心') || e.primary.includes('腹') || e.primary.includes('腰')),
+  };
+
+  // 从每个请求肌群挑 1-2 个动作
+  let picks = [];
+  for(const m of muscleSet){
+    const pool = byMuscle[m] || [];
+    if(pool.length === 0) continue;
+    // 优先取难度合适的
+    const sorted = pool.sort((a,b) => {
+      const order = {初级:1,中级:2,高级:3};
+      const da = order[a.difficulty] || 2;
+      const db = order[b.difficulty] || 2;
+      return Math.abs(da - difficulty) - Math.abs(db - difficulty);
+    });
+    // 取第一个不重复的
+    const chosen = sorted.find(e => !picks.find(p => p.id === e.id)) || sorted[0];
+    if(chosen && !picks.find(p => p.id === chosen.id)) picks.push(chosen);
+    // 每个肌群最多 2 个
+    if(picks.filter(p => p.primary.includes('胸') || p.primary.includes('背') || p.primary.includes('腿')).length < 4) {
+      const second = sorted.filter(e => e.id !== chosen.id)[0];
+      if(second) picks.push(second);
+    }
+  }
+
+  // 限制总数 4-6 个
+  return picks.slice(0, 5).map(e => ({...e, sets, reps, rest}));
+}
+
+function generatePlan(){
+  const form = document.getElementById('plan-form');
+  const goal = form.querySelector('input[name="goal"]:checked').value;
+  const days = parseInt(form.querySelector('input[name="days"]:checked').value);
+  const equipment = Array.from(form.querySelectorAll('input[name="eq"]:checked')).map(i => i.value);
+  const difficulty = days === 3 ? 1 : days === 4 ? 2 : 3;
+
+  if(equipment.length === 0){
+    alert('请至少选择一种器械!');
+    return;
+  }
+
+  const template = PLAN_TEMPLATES[goal][days];
+  const result = document.getElementById('plan-result');
+  const goalText = {muscle:'增肌',fat:'减脂',shape:'塑形'}[goal];
+
+  // 简单映射肌肉组别名
+  const muscleAliases = {
+    quads:'legs', hamstrings:'legs', glutes:'legs'
+  };
+
+  let html = `
+    <h2>${template.name}</h2>
+    <div class="plan-summary">
+      <b>训练目标:</b>${goalText} ·
+      <b>每周频率:</b>${days} 天 ·
+      <b>可用器械:</b>${equipment.join('、')} ·
+      <b>建议组数:</b>${days===3?3:4} 组 · <b>次数:</b>${goal==='fat'?'12-15':'8-12'} 次 · <b>组间休息:</b>${goal==='fat'?'45 秒':'60-90 秒'}
+    </div>
+  `;
+
+  // 生成 4 周,每周基本相同但带渐进说明
+  const progression = [
+    {week:1, note:'适应周,先用轻重量找准动作模式,不要追求重量。'},
+    {week:2, note:'增加 5-10% 重量,保持每组都接近力竭。'},
+    {week:3, note:'主项加重 10%,孤立动作每组加 1-2 次。'},
+    {week:4, note:'突破周,挑战个人记录,做好恢复。'}
+  ];
+
+  for(let w = 0; w < 4; w++){
+    const wp = progression[w];
+    html += `<div class="plan-week"><div class="plan-week-head"><span class="tag-week">第 ${wp.week} 周</span><span style="font-size:12px;color:var(--text-dim)">${wp.note}</span></div>`;
+    for(const day of template.split){
+      const muscleSet = day.muscles.map(m => muscleAliases[m] || m);
+      const exs = buildDayExercises(muscleSet, equipment, difficulty, goal);
+      html += `<div class="plan-day">
+        <div class="plan-day-head">
+          <b>${day.day}</b>
+          <span class="day-tag">${day.tag}</span>
+          <span style="font-size:12px;color:var(--text-dim)">${day.focus}</span>
+        </div>`;
+      if(exs.length === 0){
+        html += `<div style="padding:10px;color:var(--text-dim);font-size:13px">该日暂无可匹配动作,建议用徒手动作或自行安排</div>`;
+      } else {
+        for(const ex of exs){
+          html += `<div class="plan-ex">
+            <span class="plan-ex-name">${ex.name}</span>
+            <span class="plan-ex-sets">${ex.sets}×${ex.reps} · 休 ${ex.rest}</span>
+            <a href="#/exercise/${ex.slug}">查看 →</a>
+          </div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    html += `</div>`;
+  }
+
+  html += `
+    <div style="margin-top:24px;padding:18px;background:rgba(255,90,60,.06);border:1px solid rgba(255,90,60,.2);border-radius:12px;font-size:13px;color:var(--text-dim);line-height:1.7">
+      <b style="color:var(--accent-2)">⚠️ 重要提醒:</b><br>
+      ① 训练前充分热身 5-10 分钟<br>
+      ② 每个动作都要保持正确姿势,不要为了重量牺牲动作质量<br>
+      ③ 组间休息时不要玩手机,保持专注<br>
+      ④ 训练后 30 分钟内补充蛋白质(鸡胸肉/蛋白粉/鸡蛋)<br>
+      ⑤ 充足的睡眠(7-8 小时)是增肌和减脂的关键
+    </div>
+  `;
+
+  result.innerHTML = html;
+  result.style.display = 'block';
+  // 平滑滚动到结果
+  setTimeout(() => lenis.scrollTo(result, {offset: -80, duration: 1.2}), 100);
 }
 
 /* ====== 事件绑定 ====== */
@@ -1380,6 +1842,9 @@ renderHome();
 animateCount(EXERCISES.length);
 window.addEventListener('hashchange', handleRoute);
 handleRoute();
+
+// 训练计划生成器按钮
+document.getElementById('plan-generate').addEventListener('click', generatePlan);
 </script>
 </body>
 </html>
