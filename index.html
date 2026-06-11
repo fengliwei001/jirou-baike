@@ -586,6 +586,200 @@
   }
   .plan-ex a:hover{background:rgba(255,90,60,.2)}
 
+  /* ---------- Hero 增强 ---------- */
+  .hero-inner{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:0 20px}
+  .hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+  .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5}
+  .hero-orb-1{width:500px;height:500px;background:radial-gradient(circle,var(--accent),transparent);top:-200px;left:-100px;animation:orb-float 12s ease-in-out infinite}
+  .hero-orb-2{width:400px;height:400px;background:radial-gradient(circle,#7c5cff,transparent);bottom:-150px;right:-100px;animation:orb-float 14s ease-in-out infinite reverse}
+  @keyframes orb-float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,30px) scale(1.1)}}
+  .hero-icon{position:absolute;color:rgba(255,90,60,.12);pointer-events:none}
+  .hero-icon-1{width:60px;height:60px;top:15%;left:8%;animation:icon-spin 20s linear infinite}
+  .hero-icon-2{width:50px;height:50px;top:60%;left:5%;animation:icon-spin 18s linear infinite reverse}
+  .hero-icon-3{width:40px;height:40px;top:30%;right:8%;animation:icon-spin 25s linear infinite;color:rgba(255,90,60,.18)}
+  @keyframes icon-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 16px;border-radius:999px;
+    background:rgba(62,207,142,.1);border:1px solid rgba(62,207,142,.25);
+    font-size:13px;color:var(--good);margin-bottom:24px;
+    animation:tag-glow 3s ease-in-out infinite;
+  }
+  .hero-tag b{color:#fff;font-weight:700}
+  .hero-tag-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--good);
+    animation:dot-pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes tag-glow{0%,100%{box-shadow:0 0 0 0 rgba(62,207,142,.3)}50%{box-shadow:0 0 0 8px rgba(62,207,142,0)}}
+  @keyframes dot-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+  .hero h1{position:relative}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .hero-btn-primary{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;font-size:15px;font-weight:700;
+    box-shadow:0 10px 30px rgba(255,90,60,.45);
+    transition:transform .2s,box-shadow .2s;
+    text-decoration:none;
+  }
+  .hero-btn-primary:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 14px 36px rgba(255,90,60,.6)}
+  .hero-btn-ghost{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:14px 24px;border-radius:12px;
+    background:transparent;border:1px solid var(--line);
+    color:var(--text);font-size:15px;font-weight:600;
+    text-decoration:none;transition:all .2s;
+  }
+  .hero-btn-ghost:hover{border-color:var(--accent);color:var(--accent);background:rgba(255,90,60,.05)}
+  .hero-stat{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .hero-stat-ico{font-size:20px;line-height:1}
+  .hero-trust{
+    display:flex;align-items:center;justify-content:center;
+    gap:18px;flex-wrap:wrap;margin-top:32px;padding-top:24px;
+    border-top:1px solid var(--line);
+  }
+  .trust-item{display:flex;align-items:center;gap:8px}
+  .trust-avatar{
+    width:32px;height:32px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;display:grid;place-items:center;
+    font-size:13px;font-weight:700;
+  }
+  .trust-text{text-align:left;font-size:12.5px;color:var(--text-dim)}
+  .trust-text b{color:var(--text);font-weight:600;margin-right:4px}
+  .trust-rating{font-size:13px;color:#f5b54a;letter-spacing:1px}
+  .trust-rating span{color:var(--text-dim);margin-left:6px;letter-spacing:0}
+
+  /* ---------- 5 大部位预告板块 ---------- */
+  .body-parts{
+    padding:80px 28px;background:var(--bg);
+    border-top:1px solid var(--line);
+  }
+  .body-parts-inner{max-width:1200px;margin:0 auto}
+  .body-parts-head{text-align:center;margin-bottom:48px}
+  .body-parts-head h2{font-size:clamp(28px,3.5vw,38px);font-weight:800;margin:0 0 12px;letter-spacing:-.5px}
+  .body-parts-head h2 .accent{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .body-parts-head p{color:var(--text-dim);margin:0;line-height:1.6}
+  .body-parts-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    margin-bottom:40px;
+  }
+  .body-part-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:24px;transition:all .2s;position:relative;overflow:hidden;
+  }
+  .body-part-card:hover{transform:translateY(-3px);border-color:#3a3e4a;box-shadow:0 12px 28px rgba(0,0,0,.3)}
+  .bp-icon{font-size:32px;margin-bottom:12px;filter:grayscale(.3)}
+  .body-part-card h3{font-size:20px;font-weight:800;margin:0 0 8px}
+  .bp-status{
+    display:inline-block;padding:3px 10px;border-radius:999px;
+    background:var(--panel-2);color:var(--text-dim);
+    font-size:11px;font-weight:600;margin-bottom:14px;
+    text-transform:uppercase;letter-spacing:.5px;
+  }
+  .bp-status.live{background:rgba(62,207,142,.15);color:var(--good);border:1px solid rgba(62,207,142,.3)}
+  .body-part-card p{color:var(--text-dim);font-size:13.5px;line-height:1.6;margin:0 0 14px;min-height:42px}
+  .bp-progress{height:6px;background:var(--panel-2);border-radius:3px;overflow:hidden;margin-bottom:14px}
+  .bp-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:3px;transition:width .6s}
+  .bp-link{
+    display:inline-block;color:var(--accent);font-size:13.5px;font-weight:600;
+    text-decoration:none;transition:gap .2s;
+  }
+  .bp-link:hover{gap:4px}
+  .bp-link.disabled{color:var(--text-dim);cursor:not-allowed;opacity:.6}
+  .body-parts-subscribe{
+    background:linear-gradient(135deg,rgba(255,90,60,.06),rgba(124,92,255,.06));
+    border:1px solid rgba(255,90,60,.15);border-radius:18px;
+    padding:32px;text-align:center;max-width:580px;margin:0 auto;
+  }
+  .body-parts-subscribe h3{font-size:20px;font-weight:800;margin:0 0 6px}
+  .body-parts-subscribe p{color:var(--text-dim);font-size:14px;margin:0 0 18px}
+  .bp-form{display:flex;gap:8px;max-width:420px;margin:0 auto}
+  .bp-form input{
+    flex:1;padding:12px 16px;border-radius:10px;
+    background:var(--bg-soft);border:1px solid var(--line);
+    color:var(--text);font-size:14px;outline:none;
+    font-family:inherit;
+  }
+  .bp-form input:focus{border-color:var(--accent)}
+  .bp-form button{
+    padding:12px 22px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;font-size:14px;font-weight:700;cursor:pointer;border:0;
+    transition:transform .2s;white-space:nowrap;
+  }
+  .bp-form button:hover{transform:translateY(-1px)}
+  .bp-form button:disabled{opacity:.7;cursor:default}
+  @media (max-width:860px){
+    .body-parts-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .body-parts-grid{grid-template-columns:1fr}
+    .bp-form{flex-direction:column}
+  }
+
+  /* ---------- 学员见证 板块 ---------- */
+  .testimonials{padding:80px 28px;background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .testimonials-inner{max-width:1200px;margin:0 auto}
+  .testimonials h2{font-size:clamp(28px,3.5vw,38px);font-weight:800;text-align:center;margin:0 0 8px;letter-spacing:-.5px}
+  .testimonials h2 .accent{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .testimonials-sub{text-align:center;color:var(--text-dim);margin:0 0 40px;line-height:1.6}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .testimonial-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:24px;transition:all .2s;
+  }
+  .testimonial-card:hover{border-color:rgba(255,90,60,.3);transform:translateY(-3px)}
+  .testimonial-stars{color:#f5b54a;letter-spacing:2px;font-size:14px;margin-bottom:12px}
+  .testimonial-text{
+    color:var(--text);font-size:14.5px;line-height:1.7;margin:0 0 20px;
+    font-style:italic;
+  }
+  .testimonial-author{display:flex;align-items:center;gap:12px}
+  .testimonial-avatar{
+    width:40px;height:40px;border-radius:50%;
+    color:#fff;display:grid;place-items:center;
+    font-size:15px;font-weight:700;flex-shrink:0;
+  }
+  .testimonial-author b{display:block;font-size:14.5px;font-weight:600;margin-bottom:2px}
+  .testimonial-author span{font-size:12px;color:var(--text-dim)}
+  @media (max-width:860px){.testimonials-grid{grid-template-columns:1fr}}
+
+  /* ---------- 健身知识科普 板块 ---------- */
+  .knowledge{padding:80px 28px;background:var(--bg);border-top:1px solid var(--line)}
+  .knowledge-inner{max-width:1200px;margin:0 auto}
+  .knowledge h2{font-size:clamp(28px,3.5vw,38px);font-weight:800;text-align:center;margin:0 0 8px;letter-spacing:-.5px}
+  .knowledge h2 .accent{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .knowledge-sub{text-align:center;color:var(--text-dim);margin:0 0 40px;line-height:1.6}
+  .knowledge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .knowledge-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:24px;transition:all .2s;position:relative;overflow:hidden;
+  }
+  .knowledge-card::before{
+    content:'';position:absolute;top:0;left:0;width:3px;height:100%;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2));
+    transform:scaleY(0);transform-origin:top;transition:transform .3s;
+  }
+  .knowledge-card:hover::before{transform:scaleY(1)}
+  .knowledge-card:hover{border-color:rgba(255,90,60,.3);transform:translateY(-3px)}
+  .knowledge-num{
+    font-size:36px;font-weight:900;line-height:1;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:14px;
+  }
+  .knowledge-card h3{font-size:17px;font-weight:700;margin:0 0 10px}
+  .knowledge-card p{color:var(--text-dim);font-size:13.5px;line-height:1.7;margin:0 0 14px}
+  .knowledge-link{
+    display:inline-block;color:var(--accent);font-size:13px;font-weight:600;
+    text-decoration:none;transition:gap .2s;
+  }
+  .knowledge-link:hover{text-decoration:underline}
+  @media (max-width:860px){.knowledge-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.knowledge-grid{grid-template-columns:1fr}}
+
   /* ---------- 响应式 ---------- */
   @media (max-width:860px){
     .detail-hero-inner{grid-template-columns:1fr;gap:24px}
@@ -630,13 +824,66 @@
 <!-- ============ 视图 1: 主页 ============ -->
 <main class="view active" id="view-home">
   <section class="hero">
-    <h1>用<span class="accent">正确姿势</span>雕刻你的胸肌</h1>
-    <p>专业动作库 · 22 个经典胸肌训练 · GIF 动态示范 + 视频教程 · 从初学者到进阶者全覆盖</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="n" id="stat-count">0</div><div class="l">胸肌动作</div></div>
-      <div class="hero-stat"><div class="n">3</div><div class="l">难度分级</div></div>
-      <div class="hero-stat"><div class="n">5</div><div class="l">器械类型</div></div>
-      <div class="hero-stat"><div class="n">22</div><div class="l">GIF 示范</div></div>
+    <!-- 背景动态装饰:漂浮的哑铃+杠铃 SVG -->
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <svg class="hero-icon hero-icon-1" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 20v24M22 16v32M42 16v32M50 20v24M22 32h20"/></svg>
+      <svg class="hero-icon hero-icon-2" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 24v16M16 20v24M48 20v24M56 24v16M16 32h32"/></svg>
+      <svg class="hero-icon hero-icon-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        已有 <b id="hero-user-count">5,000+</b> 健身爱好者正在使用
+      </div>
+      <h1>用<span class="accent">正确姿势</span>雕刻你的胸肌</h1>
+      <p>专业动作库 · 22 个经典胸肌训练 · GIF 动态示范 + 视频教程 · 从初学者到进阶者全覆盖</p>
+
+      <div class="hero-cta">
+        <a href="#exercises" class="hero-btn-primary">开始训练</a>
+        <a href="#/plan" class="hero-btn-ghost">查看训练计划 →</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-ico">💪</div>
+          <div class="n" id="stat-count">0</div>
+          <div class="l">胸肌动作</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-ico">🎬</div>
+          <div class="n">22</div>
+          <div class="l">GIF 动态示范</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-ico">📊</div>
+          <div class="n">3</div>
+          <div class="l">难度分级</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-ico">🏋️</div>
+          <div class="n">5</div>
+          <div class="l">器械类型</div>
+        </div>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <div class="trust-avatar">小</div>
+          <div class="trust-text"><b>小明</b> 健身 3 个月</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-avatar">A</div>
+          <div class="trust-text"><b>Anna</b> 减脂 10 斤</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-avatar">L</div>
+          <div class="trust-text"><b>老李</b> 卧推突破 100kg</div>
+        </div>
+        <div class="trust-rating">★★★★★ <span>4.9/5 学员好评</span></div>
+      </div>
     </div>
   </section>
 
@@ -703,6 +950,157 @@
 
 <!-- ============ 视图 3: 分类页 ============ -->
 <main class="view" id="view-category"></main>
+
+<!-- ============ 5 大部位预告板块(主页展示) ============ -->
+<section class="body-parts" id="body-parts">
+  <div class="body-parts-inner">
+    <div class="body-parts-head">
+      <h2>不只是胸肌 · <span class="accent">全身体系在建中</span></h2>
+      <p>先精通胸肌,再扩展到全身体态。订阅上线通知,新部位首发时第一时间收到。</p>
+    </div>
+    <div class="body-parts-grid">
+      <div class="body-part-card">
+        <div class="bp-icon">🔴</div>
+        <h3>胸部</h3>
+        <span class="bp-status live">已上线</span>
+        <p>22 个经典动作 · 5 大器械 · GIF + 视频双示范</p>
+        <a href="#/" class="bp-link">立即查看 →</a>
+      </div>
+      <div class="body-part-card">
+        <div class="bp-icon">🔵</div>
+        <h3>背部</h3>
+        <span class="bp-status">规划中</span>
+        <div class="bp-progress"><div class="bp-bar" style="width:60%"></div></div>
+        <p>预计上线:7 月 · 包含引体向上、划船系列、下背强化</p>
+        <span class="bp-link disabled">敬请期待</span>
+      </div>
+      <div class="body-part-card">
+        <div class="bp-icon">🟡</div>
+        <h3>肩部</h3>
+        <span class="bp-status">规划中</span>
+        <div class="bp-progress"><div class="bp-bar" style="width:40%"></div></div>
+        <p>预计上线:7 月 · 推举、侧平举、俯身飞鸟全覆盖</p>
+        <span class="bp-link disabled">敬请期待</span>
+      </div>
+      <div class="body-part-card">
+        <div class="bp-icon">🟢</div>
+        <h3>腿部</h3>
+        <span class="bp-status">规划中</span>
+        <div class="bp-progress"><div class="bp-bar" style="width:20%"></div></div>
+        <p>预计上线:8 月 · 深蹲、硬拉、腿弯举、腿屈伸全系列</p>
+        <span class="bp-link disabled">敬请期待</span>
+      </div>
+      <div class="body-part-card">
+        <div class="bp-icon">🟣</div>
+        <h3>手臂</h3>
+        <span class="bp-status">规划中</span>
+        <div class="bp-progress"><div class="bp-bar" style="width:10%"></div></div>
+        <p>预计上线:8 月 · 二头弯举、三头下压、前臂强化</p>
+        <span class="bp-link disabled">敬请期待</span>
+      </div>
+      <div class="body-part-card">
+        <div class="bp-icon">⚪</div>
+        <h3>核心</h3>
+        <span class="bp-status">规划中</span>
+        <div class="bp-progress"><div class="bp-bar" style="width:5%"></div></div>
+        <p>预计上线:9 月 · 腹肌、马甲线、人鱼线全套训练</p>
+        <span class="bp-link disabled">敬请期待</span>
+      </div>
+    </div>
+
+    <div class="body-parts-subscribe">
+      <h3>新部位上线时第一时间知道</h3>
+      <p>填个邮箱就好,不会打扰,只在重大更新时通知。</p>
+      <form class="bp-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='已订阅 ✓';this.querySelector('button').disabled=true;">
+        <input type="email" placeholder="你的邮箱地址" required />
+        <button type="submit">订阅通知</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 用户见证/成果展示 板块 ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <h2>真实学员的<span class="accent">训练成果</span></h2>
+    <p class="testimonials-sub">他们用肌肉百科学会了正确动作,你也一样可以</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"以前一直用错误的姿势做卧推,看了 GIF 示范才知道肩膀内收这么重要。现在胸肌感觉明显练到了,肩膀也不疼了。"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#ff5a3c,#ff8a5b)">张</div>
+          <div>
+            <b>张大伟</b>
+            <span>健身 6 个月 · 增肌 8kg</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"新手最怕动作不标准,跟着 GIF 一帧一帧学,教练提示也很到位。4 周训练计划让我从完全不会到现在能完成全部动作。"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#3ecf8e,#5fe0a8)">L</div>
+          <div>
+            <b>Lisa 林</b>
+            <span>办公室久坐族 · 减脂塑形</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"对比了好几个中文健身网站,这个最专业。YouTube 视频是中文配音,动作 GIF 也能直接看到发力点,推荐!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7c5cff,#a48dff)">陈</div>
+          <div>
+            <b>陈教练</b>
+            <span>健身教练 · 5 年从业</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 健身知识科普 板块 ============ -->
+<section class="knowledge" id="knowledge">
+  <div class="knowledge-inner">
+    <h2>健身不止是<span class="accent">蛮力</span>,更是<span class="accent">科学</span></h2>
+    <p class="knowledge-sub">5 个常被忽视的健身真相,新手必看</p>
+    <div class="knowledge-grid">
+      <div class="knowledge-card">
+        <div class="knowledge-num">01</div>
+        <h3>动作质量 > 重量</h3>
+        <p>用轻重量做标准动作,比用大重量做半程动作,增肌效果高 3 倍。这是所有资深教练的共识。</p>
+        <a href="#/" class="knowledge-link">看 GIF 示范 →</a>
+      </div>
+      <div class="knowledge-card">
+        <div class="knowledge-num">02</div>
+        <h3>呼吸节奏决定效果</h3>
+        <p>"发力时呼气,还原时吸气"不是空话。错误的呼吸模式会让血压飙升、核心失稳,影响训练。</p>
+        <a href="#/" class="knowledge-link">看 GIF 示范 →</a>
+      </div>
+      <div class="knowledge-card">
+        <div class="knowledge-num">03</div>
+        <h3>睡眠 = 隐形训练</h3>
+        <p>肌肉在睡眠中生长。每晚 7-9 小时是底线,深睡阶段生长激素分泌量是白天的 3 倍。</p>
+        <a href="#/" class="knowledge-link">立即制定计划 →</a>
+      </div>
+      <div class="knowledge-card">
+        <div class="knowledge-num">04</div>
+        <h3>蛋白质摄入要够</h3>
+        <p>增肌期每公斤体重需 1.6-2.2 克蛋白质。一个 70kg 的人,每天要吃 110-150 克蛋白质。</p>
+        <a href="#/" class="knowledge-link">查看训练计划 →</a>
+      </div>
+      <div class="knowledge-card">
+        <div class="knowledge-num">05</div>
+        <h3>新手红利期 6 个月</h3>
+        <p>刚开始训练的前 6 个月,即使训练不够科学也能增肌。把握这个黄金期,养成习惯最重要。</p>
+        <a href="#/plan" class="knowledge-link">生成我的计划 →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ 视图 4: 训练计划生成器 ============ -->
 <main class="view" id="view-plan">
