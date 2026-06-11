@@ -1,0 +1,26 @@
+# 肌肉百科 jirou-baike - Robots
+User-agent: *
+Allow: /
+
+# 国内搜索引擎(百度/搜狗/360/神马/头条)都欢迎
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Sogou Spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: YisouSpider
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# 禁止爬取资源目录之外的图片(节省流量,实际目录全开)
+Disallow: /assets/*.gif$
+Disallow: /*.gif$
+
+# Sitemap 位置
+Sitemap: https://fengliwei001.github.io/jirou-baike/sitemap.xml
